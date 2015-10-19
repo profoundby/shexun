@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CTCheckbox.h"
+
+
 
 @interface LoginViewController : UIViewController
+
+@property (strong,nonatomic) IBOutlet CTCheckbox * recordpass;
+@property (weak,nonatomic) IBOutlet CTCheckbox * autologin;
+
+
 
 @end

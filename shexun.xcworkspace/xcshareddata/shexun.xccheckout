@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B0359F36-3F64-48F5-9F99-0B4AB278FD56</string>
+	<key>IDESourceControlProjectName</key>
+	<string>shexun</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4A10638CBC4FAC3F2D17481CE10760B39932BDAF</key>
+		<string>https://github.com/profoundby/shexun.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>shexun.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4A10638CBC4FAC3F2D17481CE10760B39932BDAF</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/profoundby/shexun.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4A10638CBC4FAC3F2D17481CE10760B39932BDAF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4A10638CBC4FAC3F2D17481CE10760B39932BDAF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>shexun</string>
+		</dict>
+	</array>
+</dict>
+</plist>

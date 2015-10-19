@@ -16,8 +16,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.recordpass addTarget:self action:@selector(recordpassDidChange:) forControlEvents:UIControlEventValueChanged];
+    self.recordpass.textLabel.text = @"记住密码";
+    [self recordpassDidChange:self.recordpass];
+    [self.autologin addTarget:self action:@selector(autologinDidChange:) forControlEvents:UIControlEventValueChanged];
+    self.autologin.textLabel.text = @"自动登录";
+    [self autologinDidChange:self.recordpass];
+
 }
+
+- (void)recordpassDidChange:(CTCheckbox *)checkbox
+{
+    if (checkbox.checked) {
+       
+    } else {
+        
+    }
+}
+
+- (void)autologinDidChange:(CTCheckbox *)checkbox
+{
+    if (checkbox.checked) {
+        
+    } else {
+        
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

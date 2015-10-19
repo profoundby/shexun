@@ -22,6 +22,7 @@
 		04D2A71B1BCCB1EE00E1BE12 /* AFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A71A1BCCB1EE00E1BE12 /* AFUtil.m */; };
 		04D2A71E1BCCFB9B00E1BE12 /* RESideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A71D1BCCFB9B00E1BE12 /* RESideMenuViewController.m */; };
 		04D2A7211BCCFDB700E1BE12 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A7201BCCFDB700E1BE12 /* LeftMenuViewController.m */; };
+		04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2E8F51BD4E90C00721EDD /* CTCheckbox.m */; };
 		5571792D93DE0B7656D98478 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAF7660015B6C2465F28B87 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,9 @@
 		04D2A71D1BCCFB9B00E1BE12 /* RESideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenuViewController.m; sourceTree = "<group>"; };
 		04D2A71F1BCCFDB700E1BE12 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		04D2A7201BCCFDB700E1BE12 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
+		04D2E8F31BD4E90C00721EDD /* CTCheckbox-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTCheckbox-Prefix.pch"; sourceTree = "<group>"; };
+		04D2E8F41BD4E90C00721EDD /* CTCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCheckbox.h; sourceTree = "<group>"; };
+		04D2E8F51BD4E90C00721EDD /* CTCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCheckbox.m; sourceTree = "<group>"; };
 		04D964B11BCB83380018935A /* ServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerAPI.h; sourceTree = "<group>"; };
 		8D750CFCC56E122A6EFA0A1B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BEB68366EE25D5FC5230A24C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 		04C4B8781BC64C17001E5ADC /* shexun */ = {
 			isa = PBXGroup;
 			children = (
+				04D2E8F21BD4E90C00721EDD /* CTCheckbox */,
 				04D2A7181BCCB19900E1BE12 /* Utils */,
 				04C4B87D1BC64C17001E5ADC /* AppDelegate.h */,
 				04C4B87E1BC64C17001E5ADC /* AppDelegate.m */,
@@ -174,6 +179,16 @@
 				04D2A71A1BCCB1EE00E1BE12 /* AFUtil.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		04D2E8F21BD4E90C00721EDD /* CTCheckbox */ = {
+			isa = PBXGroup;
+			children = (
+				04D2E8F31BD4E90C00721EDD /* CTCheckbox-Prefix.pch */,
+				04D2E8F41BD4E90C00721EDD /* CTCheckbox.h */,
+				04D2E8F51BD4E90C00721EDD /* CTCheckbox.m */,
+			);
+			path = CTCheckbox;
 			sourceTree = "<group>";
 		};
 		424D37E421C8ADB42F3E056D /* Frameworks */ = {
@@ -354,6 +369,7 @@
 				04C4B87F1BC64C17001E5ADC /* AppDelegate.m in Sources */,
 				04D2A71B1BCCB1EE00E1BE12 /* AFUtil.m in Sources */,
 				04C4B8821BC64C17001E5ADC /* FirstViewController.m in Sources */,
+				04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */,
 				04C4B87C1BC64C17001E5ADC /* main.m in Sources */,
 				04C4B8A41BC653EB001E5ADC /* LoginViewController.m in Sources */,
 			);
