@@ -3496,15 +3496,15 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
         UIAlertControllerStyle style = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? UIAlertControllerStyleAlert: UIAlertControllerStyleActionSheet;
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:style];
         
-        [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Take Photo", nil) style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction *action) {
+        [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"拍照", nil) style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction *action) {
             [self actionSheet:nil didDismissWithButtonIndex:0];
         }]];
         
-        [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Photo Library", nil) style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction *action) {
+        [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"照片库", nil) style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction *action) {
             [self actionSheet:nil didDismissWithButtonIndex:1];
         }]];
         
-        [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:NULL]];
+        [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:NULL]];
         
         self.controller = controller;
         [controller presentViewController:alert animated:YES completion:NULL];
@@ -3512,7 +3512,7 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
     else
     {
         self.controller = controller;
-        [[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Take Photo", nil), NSLocalizedString(@"Photo Library", nil), nil] showInView:controller.view];
+        [[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"拍照", nil), NSLocalizedString(@"照片库", nil), nil] showInView:controller.view];
     }
 }
 
@@ -3716,7 +3716,7 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
 
 - (void)setUp
 {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 20)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
     button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [button setImage:[UIImage imageNamed:@"login"] forState:UIControlStateNormal];
     UIView *wrapper = [[UIView alloc] initWithFrame:button.frame];
