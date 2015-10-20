@@ -45,6 +45,7 @@ static const float CTCheckboxDefaultSideLength = 20.0;
     self.backgroundColor = [UIColor clearColor];
     self.textLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.textLabel.backgroundColor = [UIColor clearColor];
+    self.textLabel.textColor = [UIColor whiteColor];
     [self addSubview:self.textLabel];
 
     [self addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:nil];
@@ -93,7 +94,7 @@ static const float CTCheckboxDefaultSideLength = 20.0;
     }
 
     self.checkboxColor = color;
-    self.textLabel.textColor = color;
+    //self.textLabel.textColor = color;
 }
 
 - (void)changeBackgroundColorForState:(UIControlState)state
@@ -192,13 +193,13 @@ static const float CTCheckboxDefaultSideLength = 20.0;
         [bezierPath addLineToPoint:CGPointMake(CGRectGetMinX(frame) + 0.75000 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.21875 * CGRectGetHeight(frame))];
         [bezierPath closePath];
 
-        [self.checkboxColor setFill];
+        [[UIColor greenColor]setFill];
         [bezierPath fill];
     }
 
     UIBezierPath *roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(CGRectGetMinX(frame) + floor(CGRectGetWidth(frame) * 0.05000 + 0.5), CGRectGetMinY(frame) + floor(CGRectGetHeight(frame) * 0.05000 + 0.5), floor(CGRectGetWidth(frame) * 0.95000 + 0.5) - floor(CGRectGetWidth(frame) * 0.05000 + 0.5), floor(CGRectGetHeight(frame) * 0.95000 + 0.5) - floor(CGRectGetHeight(frame) * 0.05000 + 0.5)) cornerRadius:4];
     roundedRectanglePath.lineWidth = 2 * self.checkboxSideLength / CTCheckboxDefaultSideLength;
-    [[UIColor greenColor] setStroke];
+    [[UIColor blackColor] setStroke];
     [roundedRectanglePath stroke];
 }
 

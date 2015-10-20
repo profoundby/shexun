@@ -276,6 +276,12 @@ UIKIT_EXTERN NSString *const FXFormFieldTypeImage; //image
 
 @end
 
+@interface FXFormOptionButtonCell : FXFormBaseCell
+
+@property (nonatomic, readonly) UIButton *button;
+
+@end
+
 
 #pragma clang diagnostic pop
 

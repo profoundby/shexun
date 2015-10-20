@@ -3704,3 +3704,47 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
 }
 
 @end
+
+@interface FXFormOptionButtonCell ()
+
+@property (nonatomic, strong, readwrite) UIButton *button;;
+
+@end
+
+
+@implementation FXFormOptionButtonCell
+
+- (void)setUp
+{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 20)];
+    button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    [button setImage:[UIImage imageNamed:@"login"] forState:UIControlStateNormal];
+    UIView *wrapper = [[UIView alloc] initWithFrame:button.frame];
+    [wrapper addSubview:button];
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0)
+    {
+        wrapper.frame = CGRectMake(0, 0, wrapper.frame.size.width + FXFormFieldPaddingRight, wrapper.frame.size.height);
+    }
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.accessoryView = wrapper;
+    [self.button addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)update
+{
+    self.textLabel.text = self.field.title;
+    self.detailTextLabel.text = [self.field fieldDescription];
+}
+
+- (void)valueChanged
+{
+    self.detailTextLabel.text = [self.field fieldDescription];
+    [self setNeedsLayout];
+    
+    if (self.field.action) self.field.action(self);
+}
+
+
+@end
+

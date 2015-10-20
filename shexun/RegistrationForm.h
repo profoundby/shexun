@@ -39,6 +39,7 @@ typedef NS_OPTIONS(NSInteger, ServicePlan)
 @property (nonatomic, copy) NSString *email;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSString *repeatPassword;
+@property (nonatomic, copy) NSString *nickname;
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) Gender gender;
