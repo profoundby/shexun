@@ -41,8 +41,8 @@
              //some more regular fields
              
              
-             @{FXFormFieldKey:@"phone",FXFormFieldTitle:@"手机号码",
-               FXFormFieldCell: [FXFormOptionButtonCell class]},
+             @{FXFormFieldKey:@"phone",FXFormFieldTitle:@"手机号码"},
+             @{FXFormFieldTitle: @"获取验证码", FXFormFieldAction: @"sendVerifyCode:"},
              @"验证码",
              @{FXFormFieldKey:@"profilePhoto",FXFormFieldTitle:@"头像",FXFormFieldType:FXFormFieldTypeImage},
              

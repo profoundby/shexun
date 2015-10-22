@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RESideMenuViewController.h"
+#import <ImagePlayerView.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController<ImagePlayerViewDelegate>
 
+@property (weak, nonatomic) IBOutlet ImagePlayerView *imagePlayerView;
+@property (nonatomic, strong) NSArray *imageURLs;
 
 - (void)popleftmenu;
 @end

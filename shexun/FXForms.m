@@ -84,6 +84,8 @@ NSString *const FXFormFieldTypeDate = @"date";
 NSString *const FXFormFieldTypeTime = @"time";
 NSString *const FXFormFieldTypeDateTime = @"datetime";
 NSString *const FXFormFieldTypeImage = @"image";
+NSString *const FXFormFieldButtonImage = @"buttonimage"; //buttonImage
+NSString *const FXFormFieldButtonAction = @"buttonaction"; //buttonAction
 
 
 static NSString *const FXFormsException = @"FXFormsException";
@@ -2717,6 +2719,7 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
         self.accessoryType = UITableViewCellAccessoryNone;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+
 }
 
 - (void)didSelectWithTableView:(UITableView *)tableView controller:(UIViewController *)controller

@@ -34,5 +34,10 @@
     }
 }
 
+- (void)sendVerifyCode:(UIButton *) button
+{
+    NSLog(@"send verify code");
+}
+
 
 @end

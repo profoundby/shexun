@@ -55,6 +55,9 @@ UIKIT_EXTERN NSString *const FXFormFieldFooter; //footer
 UIKIT_EXTERN NSString *const FXFormFieldInline; //inline
 UIKIT_EXTERN NSString *const FXFormFieldSortable; //sortable
 UIKIT_EXTERN NSString *const FXFormFieldViewController; //viewController
+UIKIT_EXTERN NSString *const FXFormFieldButtonImage; //buttonImage
+UIKIT_EXTERN NSString *const FXFormFieldButtonAction; //buttonAction
+
 
 UIKIT_EXTERN NSString *const FXFormFieldTypeDefault; //default
 UIKIT_EXTERN NSString *const FXFormFieldTypeLabel; //label
@@ -118,6 +121,8 @@ UIKIT_EXTERN NSString *const FXFormFieldTypeImage; //image
 @property (nonatomic, readonly) void (^action)(id sender);
 @property (nonatomic, readonly) id segue;
 @property (nonatomic, strong) id value;
+@property (nonatomic, readonly) void (^buttonAction)(id sender);
+@property (nonatomic, readonly) NSString *buttonImage;;
 
 - (NSUInteger)optionCount;
 - (id)optionAtIndex:(NSUInteger)index;

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ImagePlayerView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -32,12 +42,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>70FC1F1DE92BAEE1A4CB45A227ACF884</key>
+		<key>2D1BB86FF609847187DC2032C1CC3D10</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>916734A4C53E814C8E3A429DC681DCE9</key>
+		<key>556934220E0337A710FC1EB8200D4A17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB64F051F76F624D2CC6C1ABDC5D54E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C414BD2C0B34A051DB6ACD544FB06B17</key>
 		<dict>
 			<key>primary</key>
 			<true/>
