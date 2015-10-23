@@ -7,17 +7,17 @@
 //
 
 #import "SecondViewController.h"
-#import "DropdownMenu.h"
+#import "DOPDropDownMenu.h"
 
-@interface SecondViewController ()<dropdownDelegate>
-{
-    
-    ConditionDoubleTableView *tableView;
-    NSArray *_titleArray;
-    NSArray *_leftArray;
-    NSArray *_rightArray;
-}
+@interface SecondViewController ()<DOPDropDownMenuDataSource,DOPDropDownMenuDelegate>
+@property (nonatomic, copy) NSArray *citys;
+@property (nonatomic, copy) NSArray *ages;
+@property (nonatomic, copy) NSArray *genders;
+@property (nonatomic, copy) NSArray *originalArray;
+@property (nonatomic, copy) NSArray *results;
 
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) DOPDropDownMenu *menu;
 @end
 
 @implementation SecondViewController
@@ -32,10 +32,28 @@
     _locService.delegate = self;
     _firstload = false;
     [_locService startUserLocationService];
-    [self testData];
-    DropdownMenu *dropdown = [[DropdownMenu alloc] initDropdownWithButtonTitles:_titleArray andLeftListArray:_leftArray andRightListArray:_rightArray];
-    dropdown.delegate = self;   //此句的代理方法可返回选中下标值
-    [self.view addSubview:dropdown.view];
+    self.citys = @[NSLocalizedString(@"city1", @"city1"),
+                   NSLocalizedString(@"city2", @"city2"),
+                   NSLocalizedString(@"city3", @"city3")];
+    self.ages = @[NSLocalizedString(@"age", @"age"), @"20", @"30"];
+    self.genders = @[NSLocalizedString(@"gender1", @"gender1"),
+                     NSLocalizedString(@"gender2", @"gender2"),
+                     NSLocalizedString(@"gender3", @"gender3")];
+    self.originalArray = @[[NSString stringWithFormat:@"%@_%@_%@",self.citys[1],self.ages[1],self.genders[1]],
+                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[1],self.ages[1],self.genders[2]],
+                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[1],self.ages[2],self.genders[1]],
+                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[1],self.ages[2],self.genders[2]],
+                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[2],self.ages[1],self.genders[1]],
+                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[2],self.ages[1],self.genders[2]],
+                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[2],self.ages[2],self.genders[1]],
+                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[2],self.ages[2],self.genders[2]]];
+    self.results = self.originalArray;
+    
+    DOPDropDownMenu *menu = [[DOPDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:40];
+    menu.dataSource = self;
+    menu.delegate = self;
+    [self.view addSubview:menu];
+    self.menu = menu;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,90 +83,68 @@
     NSLog(@"error %@",error);
 }
 
-//测试数据
-- (void)testData {
-    [self testTitleArray];
-    [self testLeftArray];
-    [self testRightArray];
+- (NSInteger)numberOfColumnsInMenu:(DOPDropDownMenu *)menu {
+    return 3;
 }
 
-//每个下拉的标题
-- (void) testTitleArray {
-    _titleArray = @[@"附近", @"菜品"];
+- (NSInteger)menu:(DOPDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column {
+    return 3;
 }
 
-//左边列表可为空，则为单下拉菜单，可以根据需要传参
-- (void)testLeftArray {
-    NSArray *One_leftArray = @[@"附近", @"熱門商區", @"香洲區", @"斗門區", @"金灣區"];
-    NSArray *Two_leftArray = [[NSArray alloc] init];
-    //    NSArray *R_leftArray = @[@"Test1", @"Test2"];
+- (NSString *)menu:(DOPDropDownMenu *)menu titleForRowAtIndexPath:(DOPIndexPath *)indexPath {
+    switch (indexPath.column) {
+        case 0: return self.citys[indexPath.row];
+            break;
+        case 1: return self.genders[indexPath.row];
+            break;
+        case 2: return self.ages[indexPath.row];
+            break;
+        default:
+            return nil;
+            break;
+    }
+}
+
+- (void)menu:(DOPDropDownMenu *)menu didSelectRowAtIndexPath:(DOPIndexPath *)indexPath {
+    NSLog(@"column:%li row:%li", (long)indexPath.column, (long)indexPath.row);
+    NSLog(@"%@",[menu titleForRowAtIndexPath:indexPath]);
+    NSString *title = [menu titleForRowAtIndexPath:indexPath];
     
+    static NSString *prediStr1 = @"SELF LIKE '*'",
+    *prediStr2 = @"SELF LIKE '*'",
+    *prediStr3 = @"SELF LIKE '*'";
+    switch (indexPath.column) {
+        case 0:{
+            if (indexPath.row == 0) {
+                prediStr1 = @"SELF LIKE '*'";
+            } else {
+                prediStr1 = [NSString stringWithFormat:@"SELF CONTAINS '%@'", title];
+            }
+        }
+            break;
+        case 1:{
+            if (indexPath.row == 0) {
+                prediStr2 = @"SELF LIKE '*'";
+            } else {
+                prediStr2 = [NSString stringWithFormat:@"SELF CONTAINS '%@'", title];
+            }
+        }
+            break;
+        case 2:{
+            if (indexPath.row == 0) {
+                prediStr3 = @"SELF LIKE '*'";
+            } else {
+                prediStr3 = [NSString stringWithFormat:@"SELF CONTAINS '%@'", title];
+            }
+        }
+            
+        default:
+            break;
+    }
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"%@ AND %@ AND %@",prediStr1,prediStr2,prediStr3]];
     
-    _leftArray = [[NSArray alloc] initWithObjects:One_leftArray, Two_leftArray, nil];
+    self.results = [self.originalArray filteredArrayUsingPredicate:predicate];
 }
 
-//右边列表不可为空
-- (void)testRightArray {
-    NSArray *F_rightArray = @[
-                              @[
-                                  @{@"title":@"500米"},
-                                  @{@"title":@"1000米"},
-                                  @{@"title":@"2000米"},
-                                  @{@"title":@"5000米"}
-                                  ] ,
-                              @[
-                                  @{@"title":@"全部商區"},
-                                  @{@"title":@"拱北"},
-                                  @{@"title":@"香洲"},
-                                  @{@"title":@"吉大"},
-                                  @{@"title":@"華髮商都"},
-                                  @{@"title":@"富華里"},
-                                  @{@"title":@"揚名廣場"},
-                                  @{@"title":@"摩爾廣場"},
-                                  @{@"title":@"井岸鎮"},
-                                  @{@"title":@"紅旗鎮"},
-                                  @{@"title":@"三灶鎮"},
-                                  ],
-                              @[
-                                  @{@"title":@"全部香洲區"},
-                                  @{@"title":@"拱北"},
-                                  @{@"title":@"香洲"},
-                                  @{@"title":@"吉大"},
-                                  @{@"title":@"華髮商都"},
-                                  @{@"title":@"富華里"},
-                                  @{@"title":@"揚名廣場"},
-                                  @{@"title":@"摩爾廣場"},
-                                  ],
-                              @[
-                                  @{@"title":@"全部斗門區"},
-                                  @{@"title":@"井岸鎮"},
-                                  ],
-                              @[
-                                  @{@"title":@"全部金灣區"},
-                                  @{@"title":@"紅旗鎮"},
-                                  @{@"title":@"三灶鎮"},
-                                  ]
-                              ];
-    
-    NSArray *S_rightArray = @[
-                              @[
-                                  @{@"title":@"one"},
-                                  @{@"title":@"two"},
-                                  @{@"title":@"three"}
-                                  ] ,
-                              @[
-                                  @{@"title":@"four"}
-                                  ]
-                              ];
-    
-    _rightArray = [[NSArray alloc] initWithObjects:F_rightArray, S_rightArray, nil];
-}
-
-
-
-//实现代理，返回选中的下标，若左边没有列表，则返回0
-- (void)dropdownSelectedIndexArray:(NSArray *)indexarray {
-    NSLog(@"%s : You choice %@ ,%@ and %@", __FUNCTION__,[indexarray objectAtIndex:0], [indexarray objectAtIndex:1], [indexarray objectAtIndex:2]);
-}
 
 @end

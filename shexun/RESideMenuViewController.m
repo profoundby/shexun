@@ -19,7 +19,29 @@
     self.contentViewShadowRadius = 12;
     self.contentViewShadowEnabled = YES;
     
-    self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"maintabbar"];
+    UITabBarController *tabvc =   [self.storyboard instantiateViewControllerWithIdentifier:@"maintabbar"];
+    UIImage *tabitemimage0 = [UIImage imageNamed:@"home"];
+    tabitemimage0 = [tabitemimage0 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [[tabvc.tabBar.items objectAtIndex:0] setFinishedSelectedImage:nil withFinishedUnselectedImage:tabitemimage0];
+    [[tabvc.tabBar.items objectAtIndex:0] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    UIImage *tabitemimage1 = [UIImage imageNamed:@"near"];
+    tabitemimage1 = [tabitemimage1 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [[tabvc.tabBar.items objectAtIndex:1] setFinishedSelectedImage:nil withFinishedUnselectedImage:tabitemimage1];
+    [[tabvc.tabBar.items objectAtIndex:1] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    UIImage *tabitemimage2 = [UIImage imageNamed:@"community"];
+    tabitemimage2 = [tabitemimage2 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [[tabvc.tabBar.items objectAtIndex:2] setFinishedSelectedImage:nil withFinishedUnselectedImage:tabitemimage2];
+    [[tabvc.tabBar.items objectAtIndex:2] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    UIImage *tabitemimage3 = [UIImage imageNamed:@"event"];
+    tabitemimage3 = [tabitemimage3 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [[tabvc.tabBar.items objectAtIndex:3] setFinishedSelectedImage:nil withFinishedUnselectedImage:tabitemimage3];
+    [[tabvc.tabBar.items objectAtIndex:3] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    UIImage *tabitemimage4 = [UIImage imageNamed:@"more"];
+    tabitemimage4 = [tabitemimage4 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [[tabvc.tabBar.items objectAtIndex:4] setFinishedSelectedImage:nil withFinishedUnselectedImage:tabitemimage4];
+    self.contentViewController = tabvc;
+    [[tabvc.tabBar.items objectAtIndex:4] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    
     self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
     self.backgroundImage = [UIImage imageNamed:@"Stars"];
     self.delegate = self;

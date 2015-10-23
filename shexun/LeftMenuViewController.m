@@ -7,6 +7,7 @@
 //
 
 #import "LeftMenuViewController.h"
+#import "RESideMenuViewController.h"
 
 @interface LeftMenuViewController ()
 
@@ -42,9 +43,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RESideMenuViewController *parentvc = (RESideMenuViewController *)self.parentViewController;
+    UITabBarController *contentvc = (UITabBarController *)parentvc.contentViewController;
     switch (indexPath.row) {
         case 0:
             [self.sideMenuViewController hideMenuViewController];
+            break;
+        case 1:
+            [self.sideMenuViewController hideMenuViewController];
+            [contentvc setSelectedIndex:1];
+            break;
+        case 2:
+            [self.sideMenuViewController hideMenuViewController];
+            [contentvc setSelectedIndex:2];
+            break;
+        case 3:
+            [self.sideMenuViewController hideMenuViewController];
+            [contentvc setSelectedIndex:3];
+            break;
+        case 4:
+            [self.sideMenuViewController hideMenuViewController];
+            [contentvc setSelectedIndex:4];
             break;
         default:
             break;
@@ -84,8 +103,8 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *titles = @[@"Home", @"Calendar", @"Profile", @"Settings", @"Log Out"];
-    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
+    NSArray *titles = @[@"首页", @"附近", @"社区", @"资讯", @"更多"];
+    NSArray *images = @[@"home", @"near", @"community", @"event", @"more"];
     cell.textLabel.text = titles[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
     

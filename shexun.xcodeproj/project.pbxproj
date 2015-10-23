@@ -22,14 +22,11 @@
 		04CAD49C1BCFA0FD00A7C1E4 /* RegistrationForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD49B1BCFA0FD00A7C1E4 /* RegistrationForm.m */; };
 		04D0E5C01BD7345300C9F39E /* FogetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E5BF1BD7345300C9F39E /* FogetPasswordViewController.m */; };
 		04D0E5C31BD76A2900C9F39E /* ForgetPasswordForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E5C21BD76A2900C9F39E /* ForgetPasswordForm.m */; };
-		04D0E5CD1BD77FE600C9F39E /* ConditionDoubleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E5C71BD77FE500C9F39E /* ConditionDoubleTableView.m */; };
-		04D0E5CE1BD77FE600C9F39E /* DropdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E5C91BD77FE600C9F39E /* DropdownButton.m */; };
-		04D0E5CF1BD77FE600C9F39E /* DropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E5CB1BD77FE600C9F39E /* DropdownMenu.m */; };
-		04D0E5D01BD77FE600C9F39E /* expandableImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0E5CC1BD77FE600C9F39E /* expandableImage@2x.png */; };
 		04D2A71B1BCCB1EE00E1BE12 /* AFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A71A1BCCB1EE00E1BE12 /* AFUtil.m */; };
 		04D2A71E1BCCFB9B00E1BE12 /* RESideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A71D1BCCFB9B00E1BE12 /* RESideMenuViewController.m */; };
 		04D2A7211BCCFDB700E1BE12 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A7201BCCFDB700E1BE12 /* LeftMenuViewController.m */; };
 		04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2E8F51BD4E90C00721EDD /* CTCheckbox.m */; };
+		04D8D0751BDA13C1006CF690 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */; };
 		5571792D93DE0B7656D98478 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAF7660015B6C2465F28B87 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -73,14 +70,6 @@
 		04D0E5BF1BD7345300C9F39E /* FogetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FogetPasswordViewController.m; sourceTree = "<group>"; };
 		04D0E5C11BD76A2900C9F39E /* ForgetPasswordForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordForm.h; sourceTree = "<group>"; };
 		04D0E5C21BD76A2900C9F39E /* ForgetPasswordForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordForm.m; sourceTree = "<group>"; };
-		04D0E5C51BD77FE500C9F39E /* CommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
-		04D0E5C61BD77FE500C9F39E /* ConditionDoubleTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionDoubleTableView.h; sourceTree = "<group>"; };
-		04D0E5C71BD77FE500C9F39E /* ConditionDoubleTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionDoubleTableView.m; sourceTree = "<group>"; };
-		04D0E5C81BD77FE600C9F39E /* DropdownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownButton.h; sourceTree = "<group>"; };
-		04D0E5C91BD77FE600C9F39E /* DropdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownButton.m; sourceTree = "<group>"; };
-		04D0E5CA1BD77FE600C9F39E /* DropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenu.h; sourceTree = "<group>"; };
-		04D0E5CB1BD77FE600C9F39E /* DropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenu.m; sourceTree = "<group>"; };
-		04D0E5CC1BD77FE600C9F39E /* expandableImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expandableImage@2x.png"; sourceTree = "<group>"; };
 		04D2A7191BCCB1EE00E1BE12 /* AFUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUtil.h; sourceTree = "<group>"; };
 		04D2A71A1BCCB1EE00E1BE12 /* AFUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUtil.m; sourceTree = "<group>"; };
 		04D2A71C1BCCFB9B00E1BE12 /* RESideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenuViewController.h; sourceTree = "<group>"; };
@@ -90,6 +79,8 @@
 		04D2E8F31BD4E90C00721EDD /* CTCheckbox-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTCheckbox-Prefix.pch"; sourceTree = "<group>"; };
 		04D2E8F41BD4E90C00721EDD /* CTCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCheckbox.h; sourceTree = "<group>"; };
 		04D2E8F51BD4E90C00721EDD /* CTCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCheckbox.m; sourceTree = "<group>"; };
+		04D8D0731BDA13C1006CF690 /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
+		04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
 		04D964B11BCB83380018935A /* ServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerAPI.h; sourceTree = "<group>"; };
 		8D750CFCC56E122A6EFA0A1B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BEB68366EE25D5FC5230A24C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,7 +129,7 @@
 		04C4B8781BC64C17001E5ADC /* shexun */ = {
 			isa = PBXGroup;
 			children = (
-				04D0E5C41BD77FE500C9F39E /* DropdownMenu */,
+				04D8D0721BDA13C1006CF690 /* DOPDropDownMenu */,
 				04D2E8F21BD4E90C00721EDD /* CTCheckbox */,
 				04D2A7181BCCB19900E1BE12 /* Utils */,
 				04C4B87D1BC64C17001E5ADC /* AppDelegate.h */,
@@ -198,21 +189,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		04D0E5C41BD77FE500C9F39E /* DropdownMenu */ = {
-			isa = PBXGroup;
-			children = (
-				04D0E5C51BD77FE500C9F39E /* CommonDefine.h */,
-				04D0E5C61BD77FE500C9F39E /* ConditionDoubleTableView.h */,
-				04D0E5C71BD77FE500C9F39E /* ConditionDoubleTableView.m */,
-				04D0E5C81BD77FE600C9F39E /* DropdownButton.h */,
-				04D0E5C91BD77FE600C9F39E /* DropdownButton.m */,
-				04D0E5CA1BD77FE600C9F39E /* DropdownMenu.h */,
-				04D0E5CB1BD77FE600C9F39E /* DropdownMenu.m */,
-				04D0E5CC1BD77FE600C9F39E /* expandableImage@2x.png */,
-			);
-			path = DropdownMenu;
-			sourceTree = "<group>";
-		};
 		04D2A7181BCCB19900E1BE12 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +208,15 @@
 				04D2E8F51BD4E90C00721EDD /* CTCheckbox.m */,
 			);
 			path = CTCheckbox;
+			sourceTree = "<group>";
+		};
+		04D8D0721BDA13C1006CF690 /* DOPDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				04D8D0731BDA13C1006CF690 /* DOPDropDownMenu.h */,
+				04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */,
+			);
+			path = DOPDropDownMenu;
 			sourceTree = "<group>";
 		};
 		424D37E421C8ADB42F3E056D /* Frameworks */ = {
@@ -337,7 +322,6 @@
 			files = (
 				04C4B8881BC64C17001E5ADC /* Main.storyboard in Resources */,
 				04C4B88D1BC64C17001E5ADC /* LaunchScreen.xib in Resources */,
-				04D0E5D01BD77FE600C9F39E /* expandableImage@2x.png in Resources */,
 				04C4B88A1BC64C17001E5ADC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,11 +392,9 @@
 				04CAD4961BCF99FC00A7C1E4 /* FXForms.m in Sources */,
 				04D2A71E1BCCFB9B00E1BE12 /* RESideMenuViewController.m in Sources */,
 				04D0E5C01BD7345300C9F39E /* FogetPasswordViewController.m in Sources */,
-				04D0E5CE1BD77FE600C9F39E /* DropdownButton.m in Sources */,
 				04D2A7211BCCFDB700E1BE12 /* LeftMenuViewController.m in Sources */,
-				04D0E5CD1BD77FE600C9F39E /* ConditionDoubleTableView.m in Sources */,
+				04D8D0751BDA13C1006CF690 /* DOPDropDownMenu.m in Sources */,
 				04CAD49C1BCFA0FD00A7C1E4 /* RegistrationForm.m in Sources */,
-				04D0E5CF1BD77FE600C9F39E /* DropdownMenu.m in Sources */,
 				04CAD4991BCF9AFA00A7C1E4 /* RegistationViewController.m in Sources */,
 				04C4B87F1BC64C17001E5ADC /* AppDelegate.m in Sources */,
 				04D2A71B1BCCB1EE00E1BE12 /* AFUtil.m in Sources */,
