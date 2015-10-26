@@ -17,6 +17,7 @@
 		04C4B88D1BC64C17001E5ADC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C4B88B1BC64C17001E5ADC /* LaunchScreen.xib */; };
 		04C4B8991BC64C17001E5ADC /* shexunTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B8981BC64C17001E5ADC /* shexunTests.m */; };
 		04C4B8A41BC653EB001E5ADC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B8A31BC653EB001E5ADC /* LoginViewController.m */; };
+		04C54F7E1BDE1BDD005933B5 /* NearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C54F7D1BDE1BDD005933B5 /* NearViewController.m */; };
 		04CAD4961BCF99FC00A7C1E4 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD4951BCF99FC00A7C1E4 /* FXForms.m */; };
 		04CAD4991BCF9AFA00A7C1E4 /* RegistationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD4981BCF9AFA00A7C1E4 /* RegistationViewController.m */; };
 		04CAD49C1BCFA0FD00A7C1E4 /* RegistrationForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD49B1BCFA0FD00A7C1E4 /* RegistrationForm.m */; };
@@ -60,6 +61,8 @@
 		04C4B8981BC64C17001E5ADC /* shexunTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shexunTests.m; sourceTree = "<group>"; };
 		04C4B8A21BC653EB001E5ADC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		04C4B8A31BC653EB001E5ADC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		04C54F7C1BDE1BDD005933B5 /* NearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearViewController.h; sourceTree = "<group>"; };
+		04C54F7D1BDE1BDD005933B5 /* NearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearViewController.m; sourceTree = "<group>"; };
 		04CAD4941BCF99FC00A7C1E4 /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
 		04CAD4951BCF99FC00A7C1E4 /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
 		04CAD4971BCF9AFA00A7C1E4 /* RegistationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistationViewController.h; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				04CAD49B1BCFA0FD00A7C1E4 /* RegistrationForm.m */,
 				04C4B8A21BC653EB001E5ADC /* LoginViewController.h */,
 				04C4B8A31BC653EB001E5ADC /* LoginViewController.m */,
+				04C54F7C1BDE1BDD005933B5 /* NearViewController.h */,
+				04C54F7D1BDE1BDD005933B5 /* NearViewController.m */,
 				04884A911BD8DD2C00E0CB20 /* MoreSettingViewController.h */,
 				04884A921BD8DD2C00E0CB20 /* MoreSettingViewController.m */,
 				04C4B8861BC64C17001E5ADC /* Main.storyboard */,
@@ -395,6 +400,7 @@
 				04D2A7211BCCFDB700E1BE12 /* LeftMenuViewController.m in Sources */,
 				04D8D0751BDA13C1006CF690 /* DOPDropDownMenu.m in Sources */,
 				04CAD49C1BCFA0FD00A7C1E4 /* RegistrationForm.m in Sources */,
+				04C54F7E1BDE1BDD005933B5 /* NearViewController.m in Sources */,
 				04CAD4991BCF9AFA00A7C1E4 /* RegistationViewController.m in Sources */,
 				04C4B87F1BC64C17001E5ADC /* AppDelegate.m in Sources */,
 				04D2A71B1BCCB1EE00E1BE12 /* AFUtil.m in Sources */,
