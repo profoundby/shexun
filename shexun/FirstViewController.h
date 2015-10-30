@@ -10,10 +10,14 @@
 #import "RESideMenuViewController.h"
 #import <ImagePlayerView.h>
 
-@interface FirstViewController : UIViewController<ImagePlayerViewDelegate>
+@interface FirstViewController : UIViewController<ImagePlayerViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet ImagePlayerView *imagePlayerView;
 @property (nonatomic, strong) NSArray *imageURLs;
+@property (nonatomic, copy) NSDictionary *indexDic;
+@property (nonatomic, strong) NSArray *indexTitleArray;
+@property (nonatomic,retain) IBOutlet UICollectionView *collectionView;
+
 
 - (void)popleftmenu;
 @end

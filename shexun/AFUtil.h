@@ -11,4 +11,5 @@
 
 @interface AFUtil : NSObject
 
++ (void)JSONDataWithUrl:(NSString *)url success:(void (^)(id json))success fail:(void (^)())fail;
 @end

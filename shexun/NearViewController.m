@@ -8,6 +8,10 @@
 
 #import "NearViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "AFUtil.h"
+#import "ServerAPI.h"
+#import  <MBProgressHUD.h>
+#import "UICompanyTableCell.h"
 
 @implementation NearViewController
 
@@ -35,8 +39,16 @@
     menu.delegate = self;
     [self.view addSubview:menu];
     self.menu = menu;
-    NSString *datastr = @"[{'image':'http://os.blog.163.com/common/ava.s?b=1&host=fei263','name':'测试企业1'},{'image':'http://ww3.sinaimg.cn/square/6988e5fejw1exegs6da1qj209q09qmy9.jpg','name':'测试企业2'}]";
-    self.nearcomdata = [NSJSONSerialization JSONObjectWithData:[datastr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+    void (^successblock)(id json);
+    successblock = ^(id json)
+    {
+        NSLog(@"%@",json);
+        self.nearcomdata = [[json objectForKey:@"result"] objectForKey:@"companylist"];
+        [self.tableview reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@",SERVER_PREFIX,SX_INDEX] success:successblock fail:nil];
 }
 
 - (NSInteger)numberOfColumnsInMenu:(DOPDropDownMenu *)menu {
@@ -117,9 +129,15 @@
 #pragma mark返回每行的单元格
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSIndexPath是一个结构体，记录了组和行信息
-    UITableViewCell *cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell.textLabel.text=[[self.nearcomdata objectAtIndex:[indexPath row]] objectForKey:@"name"];
-    [cell.imageView  sd_setImageWithURL:[NSURL URLWithString:[[self.nearcomdata objectAtIndex:[indexPath row]] objectForKey:@"image"]] placeholderImage:nil];
+    static NSString *CellIdentifier = @"companycell";
+    //自定义cell类
+    UICompanyTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell==nil) {
+        cell=[[UICompanyTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    cell.comName.text=[[self.nearcomdata objectAtIndex:[indexPath row]] objectForKey:@"companyname"];
+    cell.comDistance.text = [[self.nearcomdata objectAtIndex:[indexPath row]] objectForKey:@"areaname"];
+    [cell.comImage  sd_setImageWithURL:[NSURL URLWithString:[[self.nearcomdata objectAtIndex:[indexPath row]] objectForKey:@"logo"]] placeholderImage:nil];
     return cell;
 }
 

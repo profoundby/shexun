@@ -1,0 +1,51 @@
+
+/* Class = "IBUITabBarItem"; title = "更多"; ObjectID = "CYz-oz-9dB"; */
+"CYz-oz-9dB.title" = "更多";
+
+/* Class = "IBUILabel"; text = "100km"; ObjectID = "FUP-NN-VYp"; */
+"FUP-NN-VYp.text" = "100km";
+
+/* Class = "IBUILabel"; text = "公司名称"; ObjectID = "GHi-7G-0Mx"; */
+"GHi-7G-0Mx.text" = "公司名称";
+
+/* Class = "IBUINavigationItem"; title = "Root View Controller"; ObjectID = "ICB-Bl-VoM"; */
+"ICB-Bl-VoM.title" = "Root View Controller";
+
+/* Class = "IBUINavigationItem"; title = "社讯"; ObjectID = "JPG-jU-Kr9"; */
+"JPG-jU-Kr9.title" = "社讯";
+
+/* Class = "IBUITabBarItem"; title = "附近"; ObjectID = "TTu-kq-OlG"; */
+"TTu-kq-OlG.title" = "附近";
+
+/* Class = "IBUIViewController"; title = "SidebarViewController"; ObjectID = "XXB-mk-I7f"; */
+"XXB-mk-I7f.title" = "SidebarViewController";
+
+/* Class = "IBUINavigationItem"; title = "Root View Controller"; ObjectID = "ZKE-Ji-9vt"; */
+"ZKE-Ji-9vt.title" = "Root View Controller";
+
+/* Class = "IBUITabBarItem"; title = "首页"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "首页";
+
+/* Class = "IBUIButton"; normalTitle = "忘记密码"; ObjectID = "cFg-bA-j7s"; */
+"cFg-bA-j7s.normalTitle" = "忘记密码";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "fWy-Mk-xD5"; */
+"fWy-Mk-xD5.text" = "Label";
+
+/* Class = "IBUITabBarItem"; title = "资讯"; ObjectID = "gQM-Zf-E1O"; */
+"gQM-Zf-E1O.title" = "资讯";
+
+/* Class = "IBUILabel"; text = "用户名："; ObjectID = "hVy-GA-Ons"; */
+"hVy-GA-Ons.text" = "用户名：";
+
+/* Class = "IBUINavigationItem"; title = "Root View Controller"; ObjectID = "iSH-rG-jUk"; */
+"iSH-rG-jUk.title" = "Root View Controller";
+
+/* Class = "IBUILabel"; text = "密   码："; ObjectID = "pg8-m4-iI9"; */
+"pg8-m4-iI9.text" = "密   码：";
+
+/* Class = "IBUITabBarItem"; title = "首页"; ObjectID = "rNP-L4-igy"; */
+"rNP-L4-igy.title" = "首页";
+
+/* Class = "IBUITabBarItem"; title = "社区"; ObjectID = "wsc-MU-xk5"; */
+"wsc-MU-xk5.title" = "社区";

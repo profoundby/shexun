@@ -17,7 +17,6 @@
 @property (nonatomic, copy) NSArray *originalArray;
 @property (nonatomic, copy) NSArray *results;
 
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) IBOutlet DOPDropDownMenu *menu;
 
 @property (strong,nonatomic) IBOutlet UITableView * tableview;

@@ -18,11 +18,15 @@
 		04C4B8991BC64C17001E5ADC /* shexunTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B8981BC64C17001E5ADC /* shexunTests.m */; };
 		04C4B8A41BC653EB001E5ADC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B8A31BC653EB001E5ADC /* LoginViewController.m */; };
 		04C54F7E1BDE1BDD005933B5 /* NearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C54F7D1BDE1BDD005933B5 /* NearViewController.m */; };
+		04C5798F1BE36AE100C02F53 /* CitylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5798E1BE36AE100C02F53 /* CitylistViewController.m */; };
 		04CAD4961BCF99FC00A7C1E4 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD4951BCF99FC00A7C1E4 /* FXForms.m */; };
 		04CAD4991BCF9AFA00A7C1E4 /* RegistationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD4981BCF9AFA00A7C1E4 /* RegistationViewController.m */; };
 		04CAD49C1BCFA0FD00A7C1E4 /* RegistrationForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD49B1BCFA0FD00A7C1E4 /* RegistrationForm.m */; };
 		04D0E5C01BD7345300C9F39E /* FogetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E5BF1BD7345300C9F39E /* FogetPasswordViewController.m */; };
 		04D0E5C31BD76A2900C9F39E /* ForgetPasswordForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E5C21BD76A2900C9F39E /* ForgetPasswordForm.m */; };
+		04D11B451BE0BE5200C22396 /* UICompanyTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D11B441BE0BE5100C22396 /* UICompanyTableCell.m */; };
+		04D258471BE21855006631E3 /* UIIndexCollectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D258461BE21855006631E3 /* UIIndexCollectionHeadView.m */; };
+		04D2584E1BE21E3A006631E3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04D258501BE21E3A006631E3 /* Localizable.strings */; };
 		04D2A71B1BCCB1EE00E1BE12 /* AFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A71A1BCCB1EE00E1BE12 /* AFUtil.m */; };
 		04D2A71E1BCCFB9B00E1BE12 /* RESideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A71D1BCCFB9B00E1BE12 /* RESideMenuViewController.m */; };
 		04D2A7211BCCFDB700E1BE12 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A7201BCCFDB700E1BE12 /* LeftMenuViewController.m */; };
@@ -63,6 +67,9 @@
 		04C4B8A31BC653EB001E5ADC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		04C54F7C1BDE1BDD005933B5 /* NearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearViewController.h; sourceTree = "<group>"; };
 		04C54F7D1BDE1BDD005933B5 /* NearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearViewController.m; sourceTree = "<group>"; };
+		04C579891BE360CE00C02F53 /* Pinyin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pinyin.h; sourceTree = "<group>"; };
+		04C5798D1BE36AE100C02F53 /* CitylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitylistViewController.h; sourceTree = "<group>"; };
+		04C5798E1BE36AE100C02F53 /* CitylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitylistViewController.m; sourceTree = "<group>"; };
 		04CAD4941BCF99FC00A7C1E4 /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
 		04CAD4951BCF99FC00A7C1E4 /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
 		04CAD4971BCF9AFA00A7C1E4 /* RegistationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistationViewController.h; sourceTree = "<group>"; };
@@ -73,6 +80,12 @@
 		04D0E5BF1BD7345300C9F39E /* FogetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FogetPasswordViewController.m; sourceTree = "<group>"; };
 		04D0E5C11BD76A2900C9F39E /* ForgetPasswordForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordForm.h; sourceTree = "<group>"; };
 		04D0E5C21BD76A2900C9F39E /* ForgetPasswordForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordForm.m; sourceTree = "<group>"; };
+		04D11B431BE0BE5100C22396 /* UICompanyTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICompanyTableCell.h; sourceTree = "<group>"; };
+		04D11B441BE0BE5100C22396 /* UICompanyTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICompanyTableCell.m; sourceTree = "<group>"; };
+		04D258451BE21855006631E3 /* UIIndexCollectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIIndexCollectionHeadView.h; sourceTree = "<group>"; };
+		04D258461BE21855006631E3 /* UIIndexCollectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIIndexCollectionHeadView.m; sourceTree = "<group>"; };
+		04D258491BE21C73006631E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		04D2584F1BE21E3A006631E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04D2A7191BCCB1EE00E1BE12 /* AFUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUtil.h; sourceTree = "<group>"; };
 		04D2A71A1BCCB1EE00E1BE12 /* AFUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUtil.m; sourceTree = "<group>"; };
 		04D2A71C1BCCFB9B00E1BE12 /* RESideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenuViewController.h; sourceTree = "<group>"; };
@@ -153,9 +166,15 @@
 				04C4B8A31BC653EB001E5ADC /* LoginViewController.m */,
 				04C54F7C1BDE1BDD005933B5 /* NearViewController.h */,
 				04C54F7D1BDE1BDD005933B5 /* NearViewController.m */,
+				04C5798D1BE36AE100C02F53 /* CitylistViewController.h */,
+				04C5798E1BE36AE100C02F53 /* CitylistViewController.m */,
 				04884A911BD8DD2C00E0CB20 /* MoreSettingViewController.h */,
 				04884A921BD8DD2C00E0CB20 /* MoreSettingViewController.m */,
 				04C4B8861BC64C17001E5ADC /* Main.storyboard */,
+				04D11B431BE0BE5100C22396 /* UICompanyTableCell.h */,
+				04D11B441BE0BE5100C22396 /* UICompanyTableCell.m */,
+				04D258451BE21855006631E3 /* UIIndexCollectionHeadView.h */,
+				04D258461BE21855006631E3 /* UIIndexCollectionHeadView.m */,
 				04D2A71C1BCCFB9B00E1BE12 /* RESideMenuViewController.h */,
 				04D2A71D1BCCFB9B00E1BE12 /* RESideMenuViewController.m */,
 				04D2A71F1BCCFDB700E1BE12 /* LeftMenuViewController.h */,
@@ -173,6 +192,7 @@
 			children = (
 				04C4B87A1BC64C17001E5ADC /* Info.plist */,
 				04C4B87B1BC64C17001E5ADC /* main.m */,
+				04D258501BE21E3A006631E3 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -201,6 +221,7 @@
 				04CAD4951BCF99FC00A7C1E4 /* FXForms.m */,
 				04D2A7191BCCB1EE00E1BE12 /* AFUtil.h */,
 				04D2A71A1BCCB1EE00E1BE12 /* AFUtil.m */,
+				04C579891BE360CE00C02F53 /* Pinyin.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -326,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C4B8881BC64C17001E5ADC /* Main.storyboard in Resources */,
+				04D2584E1BE21E3A006631E3 /* Localizable.strings in Resources */,
 				04C4B88D1BC64C17001E5ADC /* LaunchScreen.xib in Resources */,
 				04C4B88A1BC64C17001E5ADC /* Images.xcassets in Resources */,
 			);
@@ -400,11 +422,14 @@
 				04D2A7211BCCFDB700E1BE12 /* LeftMenuViewController.m in Sources */,
 				04D8D0751BDA13C1006CF690 /* DOPDropDownMenu.m in Sources */,
 				04CAD49C1BCFA0FD00A7C1E4 /* RegistrationForm.m in Sources */,
+				04C5798F1BE36AE100C02F53 /* CitylistViewController.m in Sources */,
 				04C54F7E1BDE1BDD005933B5 /* NearViewController.m in Sources */,
 				04CAD4991BCF9AFA00A7C1E4 /* RegistationViewController.m in Sources */,
+				04D258471BE21855006631E3 /* UIIndexCollectionHeadView.m in Sources */,
 				04C4B87F1BC64C17001E5ADC /* AppDelegate.m in Sources */,
 				04D2A71B1BCCB1EE00E1BE12 /* AFUtil.m in Sources */,
 				04884A931BD8DD2C00E0CB20 /* MoreSettingViewController.m in Sources */,
+				04D11B451BE0BE5200C22396 /* UICompanyTableCell.m in Sources */,
 				04C4B8821BC64C17001E5ADC /* FirstViewController.m in Sources */,
 				04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */,
 				04C4B87C1BC64C17001E5ADC /* main.m in Sources */,
@@ -436,6 +461,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				04C4B8871BC64C17001E5ADC /* Base */,
+				04D258491BE21C73006631E3 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -446,6 +472,14 @@
 				04C4B88C1BC64C17001E5ADC /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		04D258501BE21E3A006631E3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04D2584F1BE21E3A006631E3 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

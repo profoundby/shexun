@@ -8,6 +8,8 @@
 
 #import "SecondViewController.h"
 #import "DOPDropDownMenu.h"
+#import "ServerAPI.h"
+#import "AFUtil.h"
 
 @interface SecondViewController ()<DOPDropDownMenuDataSource,DOPDropDownMenuDelegate>
 @property (nonatomic, copy) NSArray *citys;
@@ -54,6 +56,11 @@
     menu.delegate = self;
     [self.view addSubview:menu];
     self.menu = menu;
+}
+
+- (void)updateIndexDataSuccess:(id)json
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

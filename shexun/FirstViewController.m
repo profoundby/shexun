@@ -8,8 +8,12 @@
 
 #import "FirstViewController.h"
 #import  <SDWebImage/UIImageView+WebCache.h>
+#import <MBProgressHUD.h>
+#import "AFUtil.h"
+#import "ServerAPI.h"
+#import "UIIndexCollectionHeadView.h"
 
-@interface FirstViewController ()
+@interface FirstViewController ()　
 
 @end
 
@@ -19,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     //[self.navigationController.navigationItem.leftBarButtonItem performSelector:(@selector(popleftmenu)) withObject:nil afterDelay:0];
+    self.indexTitleArray = [NSArray arrayWithObjects:@"新闻·资讯",@"企业·采风",@"热门·企业", nil];
     self.imageURLs = @[[NSURL URLWithString:@"http://sudasuta.com/wp-content/uploads/2013/10/10143181686_375e063f2c_z.jpg"],
                        [NSURL URLWithString:@"http://www.yancheng.gov.cn/ztzl/zgycddhsdgy/xwdt/201109/W020110902584601289616.jpg"],
                        [NSURL URLWithString:@"http://fzone.oushinet.com/bbs/data/attachment/forum/201208/15/074140zsb6ko6hfhzrb40q.jpg"]];
@@ -38,6 +43,21 @@
     //    self.imagePlayerView.edgeInsets = UIEdgeInsetsMake(10, 20, 30, 40);
     
     [self.imagePlayerView reloadData];
+    void (^successblock)(id json);
+    successblock = ^(id json)
+    {
+        //NSLog(@"%@",json);
+        self.indexDic= json;
+        NSMutableArray * rotationUrls = [[NSMutableArray alloc] init];
+        for (int i=0; i<[[[self.indexDic objectForKey:@"result"] objectForKey:@"mrotation"] count]; i++) {
+            [rotationUrls addObject:[NSURL URLWithString:[[[[self.indexDic objectForKey:@"result"] objectForKey:@"mrotation"] objectAtIndex:i] objectForKey:@"image"]]];
+        }
+        self.imageURLs = rotationUrls;
+        [self.imagePlayerView reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@",SERVER_PREFIX,SX_INDEX] success:successblock fail:nil];
     
 }
 
@@ -70,6 +90,70 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -- UICollectionViewDataSource
+//定义展示的UICollectionViewCell的个数
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    if(section == 0)
+    {
+        return  4;
+    }
+    else
+        return  6;
+}
+//定义展示的Section的个数
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 3;
+}
+//每个UICollectionView展示的内容
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString * CellIdentifier = @"GradientCell";
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
+    return cell;
+}
+#pragma mark --UICollectionViewDelegateFlowLayout
+//定义每个UICollectionView 的大小
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([indexPath section] < 2 || ([indexPath section] == 2 && [indexPath row] < 2))
+    {
+      return CGSizeMake((collectionView.frame.size.width -20)/2, 100);
+    }
+     else
+    return CGSizeMake((collectionView.frame.size.width -40)/4, 100);
+}
+//定义每个UICollectionView 的 margin
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(5, 5, 5, 5);
+}
+#pragma mark --UICollectionViewDelegate
+//UICollectionView被选中时调用的方法
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell * cell = (UICollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+}
+//返回这个UICollectionView是否可以被选择
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UIIndexCollectionHeadView *reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"collectionHead" forIndexPath
+                                                                                                   :indexPath];
+    reusableview.headLabel.text = [self.indexTitleArray objectAtIndex:[indexPath section]];
+
+    return reusableview;
+    
 }
 
 @end
