@@ -19,6 +19,8 @@
 		04C4B8A41BC653EB001E5ADC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B8A31BC653EB001E5ADC /* LoginViewController.m */; };
 		04C54F7E1BDE1BDD005933B5 /* NearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C54F7D1BDE1BDD005933B5 /* NearViewController.m */; };
 		04C5798F1BE36AE100C02F53 /* CitylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5798E1BE36AE100C02F53 /* CitylistViewController.m */; };
+		04C5FE671BE8988800588248 /* UIIndexCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FE661BE8988800588248 /* UIIndexCollectionCell.m */; };
+		04C5FE6A1BE8A97D00588248 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FE691BE8A97D00588248 /* NewsDetailViewController.m */; };
 		04CAD4961BCF99FC00A7C1E4 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD4951BCF99FC00A7C1E4 /* FXForms.m */; };
 		04CAD4991BCF9AFA00A7C1E4 /* RegistationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD4981BCF9AFA00A7C1E4 /* RegistationViewController.m */; };
 		04CAD49C1BCFA0FD00A7C1E4 /* RegistrationForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD49B1BCFA0FD00A7C1E4 /* RegistrationForm.m */; };
@@ -70,6 +72,10 @@
 		04C579891BE360CE00C02F53 /* Pinyin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pinyin.h; sourceTree = "<group>"; };
 		04C5798D1BE36AE100C02F53 /* CitylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitylistViewController.h; sourceTree = "<group>"; };
 		04C5798E1BE36AE100C02F53 /* CitylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitylistViewController.m; sourceTree = "<group>"; };
+		04C5FE651BE8988800588248 /* UIIndexCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIIndexCollectionCell.h; sourceTree = "<group>"; };
+		04C5FE661BE8988800588248 /* UIIndexCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIIndexCollectionCell.m; sourceTree = "<group>"; };
+		04C5FE681BE8A97D00588248 /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
+		04C5FE691BE8A97D00588248 /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
 		04CAD4941BCF99FC00A7C1E4 /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
 		04CAD4951BCF99FC00A7C1E4 /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
 		04CAD4971BCF9AFA00A7C1E4 /* RegistationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistationViewController.h; sourceTree = "<group>"; };
@@ -171,6 +177,8 @@
 				04884A911BD8DD2C00E0CB20 /* MoreSettingViewController.h */,
 				04884A921BD8DD2C00E0CB20 /* MoreSettingViewController.m */,
 				04C4B8861BC64C17001E5ADC /* Main.storyboard */,
+				04C5FE651BE8988800588248 /* UIIndexCollectionCell.h */,
+				04C5FE661BE8988800588248 /* UIIndexCollectionCell.m */,
 				04D11B431BE0BE5100C22396 /* UICompanyTableCell.h */,
 				04D11B441BE0BE5100C22396 /* UICompanyTableCell.m */,
 				04D258451BE21855006631E3 /* UIIndexCollectionHeadView.h */,
@@ -179,6 +187,8 @@
 				04D2A71D1BCCFB9B00E1BE12 /* RESideMenuViewController.m */,
 				04D2A71F1BCCFDB700E1BE12 /* LeftMenuViewController.h */,
 				04D2A7201BCCFDB700E1BE12 /* LeftMenuViewController.m */,
+				04C5FE681BE8A97D00588248 /* NewsDetailViewController.h */,
+				04C5FE691BE8A97D00588248 /* NewsDetailViewController.m */,
 				04C4B8891BC64C17001E5ADC /* Images.xcassets */,
 				04C4B88B1BC64C17001E5ADC /* LaunchScreen.xib */,
 				04C4B8791BC64C17001E5ADC /* Supporting Files */,
@@ -427,12 +437,14 @@
 				04CAD4991BCF9AFA00A7C1E4 /* RegistationViewController.m in Sources */,
 				04D258471BE21855006631E3 /* UIIndexCollectionHeadView.m in Sources */,
 				04C4B87F1BC64C17001E5ADC /* AppDelegate.m in Sources */,
+				04C5FE6A1BE8A97D00588248 /* NewsDetailViewController.m in Sources */,
 				04D2A71B1BCCB1EE00E1BE12 /* AFUtil.m in Sources */,
 				04884A931BD8DD2C00E0CB20 /* MoreSettingViewController.m in Sources */,
 				04D11B451BE0BE5200C22396 /* UICompanyTableCell.m in Sources */,
 				04C4B8821BC64C17001E5ADC /* FirstViewController.m in Sources */,
 				04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */,
 				04C4B87C1BC64C17001E5ADC /* main.m in Sources */,
+				04C5FE671BE8988800588248 /* UIIndexCollectionCell.m in Sources */,
 				04C4B8A41BC653EB001E5ADC /* LoginViewController.m in Sources */,
 				04D0E5C31BD76A2900C9F39E /* ForgetPasswordForm.m in Sources */,
 			);

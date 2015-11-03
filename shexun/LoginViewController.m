@@ -10,6 +10,7 @@
 #import "AFUtil.h"
 #import "ServerAPI.h"
 #import <MBProgressHUD.h>
+#import "RESideMenuViewController.h"
 
 @interface LoginViewController ()
 
@@ -21,28 +22,37 @@
     [super viewDidLoad];
     [self.recordpass addTarget:self action:@selector(recordpassDidChange:) forControlEvents:UIControlEventValueChanged];
     self.recordpass.textLabel.text = @"记住密码";
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"recordpass"] isEqualToString:@"1"]) {
+        [self.username setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
+        [self.password setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"password"]];
+        self.recordpass.checked = YES;
+    }
     [self recordpassDidChange:self.recordpass];
     [self.autologin addTarget:self action:@selector(autologinDidChange:) forControlEvents:UIControlEventValueChanged];
     self.autologin.textLabel.text = @"自动登录";
     [self autologinDidChange:self.recordpass];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"autologin"] isEqualToString:@"1"]) {
+        self.autologin.checked = YES;
+        [self loginAction:nil];
+    }
 
 }
 
 - (void)recordpassDidChange:(CTCheckbox *)checkbox
 {
     if (checkbox.checked) {
-       
+        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"recordpass"];
     } else {
-        
+        [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"recordpass"];
     }
 }
 
 - (void)autologinDidChange:(CTCheckbox *)checkbox
 {
     if (checkbox.checked) {
-        
+        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"autologin"];
     } else {
-        
+        [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"autologin"];
     }
 }
 
@@ -74,15 +84,27 @@
         NSMutableDictionary *logindic = [[NSMutableDictionary alloc] initWithCapacity:2];
         [logindic setObject:self.username.text forKey:@"username"];
         [logindic setObject:self.password.text forKey:@"password"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.username.text  forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.password.text  forKey:@"password"];
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         //hud.mode = MBProgressHUDModeText;
         hud.labelText = @"正在登录";
-        [AFUtil postJSONWithUrl:[NSString stringWithFormat:@"%@%@",SERVER_PREFIX,SX_LOGIN] parameters:nil success:^(id responseObject)
+        [AFUtil postJSONWithUrl:[NSString stringWithFormat:@"%@%@",SERVER_PREFIX,SX_LOGIN] parameters:logindic success:^(id responseObject)
          {
              [hud hide:YES];
              NSLog(@"%@",[responseObject objectForKey:@"result"]);
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录成功" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             if([[responseObject objectForKey:@"status"]  integerValue] == 400)
+             {
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:[responseObject objectForKey:@"result"]  delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
              [alert show];
+             }
+             else
+             {
+             [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"result"] forKey:@"userinfo"];
+             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+             RESideMenuViewController *residevc = (RESideMenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"sidebarviewcontroller"];
+             [self presentViewController:residevc animated:NO completion:nil];
+             }
              
          }fail:^(void)
          {

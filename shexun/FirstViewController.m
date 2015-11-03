@@ -12,6 +12,8 @@
 #import "AFUtil.h"
 #import "ServerAPI.h"
 #import "UIIndexCollectionHeadView.h"
+#import "UIIndexCollectionCell.h"
+#import "NewsDetailViewController.h"
 
 @interface FirstViewController ()　
 
@@ -24,9 +26,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     //[self.navigationController.navigationItem.leftBarButtonItem performSelector:(@selector(popleftmenu)) withObject:nil afterDelay:0];
     self.indexTitleArray = [NSArray arrayWithObjects:@"新闻·资讯",@"企业·采风",@"热门·企业", nil];
-    self.imageURLs = @[[NSURL URLWithString:@"http://sudasuta.com/wp-content/uploads/2013/10/10143181686_375e063f2c_z.jpg"],
-                       [NSURL URLWithString:@"http://www.yancheng.gov.cn/ztzl/zgycddhsdgy/xwdt/201109/W020110902584601289616.jpg"],
-                       [NSURL URLWithString:@"http://fzone.oushinet.com/bbs/data/attachment/forum/201208/15/074140zsb6ko6hfhzrb40q.jpg"]];
+    self.imageURLs = @[[NSURL URLWithString:@"http://sudasuta.com/wp-content/uploads/2013/10/10143181686_375e063f2c_z.jpg"]];
     
     self.imagePlayerView.imagePlayerViewDelegate = self;
     
@@ -54,6 +54,7 @@
         }
         self.imageURLs = rotationUrls;
         [self.imagePlayerView reloadData];
+        [self.collectionView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -112,9 +113,17 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString * CellIdentifier = @"GradientCell";
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
+    UIIndexCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    if ([indexPath section] == 0) {
+        [cell.logo sd_setImageWithURL:[[[[self.indexDic objectForKey:@"result"] objectForKey:@"newslist"] objectAtIndex:[indexPath row]] objectForKey:@"thumb"] placeholderImage:[UIImage imageNamed:@"ic_launcher"]];
+        [cell.title setText:[[[[self.indexDic objectForKey:@"result"] objectForKey:@"newslist"] objectAtIndex:[indexPath row]] objectForKey:@"title"]];
+        [cell.title setHidden:NO];
+    }
+    else
+    {
+    [cell.logo sd_setImageWithURL:[[[[self.indexDic objectForKey:@"result"] objectForKey:@"companylist"] objectAtIndex:[indexPath row]] objectForKey:@"logo"] placeholderImage:[UIImage imageNamed:@"ic_launcher"]];
+    [cell.title setHidden:YES];
+    }
     return cell;
 }
 #pragma mark --UICollectionViewDelegateFlowLayout
@@ -137,8 +146,13 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell * cell = (UICollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
+    if ([indexPath section] == 0) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        NewsDetailViewController   *newsvc = (NewsDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"newsdetail"];
+        newsvc.titletext =[[[[self.indexDic objectForKey:@"result"] objectForKey:@"newslist"] objectAtIndex:[indexPath row]] objectForKey:@"title"];
+        newsvc.newsid = [[[[self.indexDic objectForKey:@"result"] objectForKey:@"newslist"] objectAtIndex:[indexPath row]] objectForKey:@"id"];
+        [self showViewController:newsvc sender:self];
+    }
 }
 //返回这个UICollectionView是否可以被选择
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath

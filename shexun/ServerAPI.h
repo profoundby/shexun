@@ -18,3 +18,4 @@
 #define  SX_INDEX   @"index"
 
 #define  SX_LOGIN   @"login"
+#define  SX_NEWSDETAIL @"shownews"
