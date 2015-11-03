@@ -34,6 +34,12 @@
 		04D2A7211BCCFDB700E1BE12 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A7201BCCFDB700E1BE12 /* LeftMenuViewController.m */; };
 		04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2E8F51BD4E90C00721EDD /* CTCheckbox.m */; };
 		04D8D0751BDA13C1006CF690 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */; };
+		379BD2E41BE8F8DA00064192 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2E31BE8F8DA00064192 /* CompanyViewController.m */; };
+		379BD2E91BE8F92F00064192 /* CompanyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2E71BE8F92F00064192 /* CompanyActivityViewController.m */; };
+		379BD2EE1BE8F9B300064192 /* CompanyServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2EC1BE8F9B300064192 /* CompanyServiceViewController.m */; };
+		379BD2F31BE8F9F100064192 /* CompanyCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2F11BE8F9F100064192 /* CompanyCardViewController.m */; };
+		379BD2F71BE9057F00064192 /* CompanyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2F61BE9057F00064192 /* CompanyHeader.m */; };
+		379BD2F91BE9059F00064192 /* CompanyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379BD2F81BE9059F00064192 /* CompanyHeader.xib */; };
 		5571792D93DE0B7656D98478 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAF7660015B6C2465F28B87 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +110,17 @@
 		04D8D0731BDA13C1006CF690 /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
 		04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
 		04D964B11BCB83380018935A /* ServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerAPI.h; sourceTree = "<group>"; };
+		379BD2E21BE8F8DA00064192 /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
+		379BD2E31BE8F8DA00064192 /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
+		379BD2E61BE8F92F00064192 /* CompanyActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyActivityViewController.h; sourceTree = "<group>"; };
+		379BD2E71BE8F92F00064192 /* CompanyActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyActivityViewController.m; sourceTree = "<group>"; };
+		379BD2EB1BE8F9B300064192 /* CompanyServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyServiceViewController.h; sourceTree = "<group>"; };
+		379BD2EC1BE8F9B300064192 /* CompanyServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyServiceViewController.m; sourceTree = "<group>"; };
+		379BD2F01BE8F9F100064192 /* CompanyCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCardViewController.h; sourceTree = "<group>"; };
+		379BD2F11BE8F9F100064192 /* CompanyCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCardViewController.m; sourceTree = "<group>"; };
+		379BD2F51BE9057F00064192 /* CompanyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyHeader.h; sourceTree = "<group>"; };
+		379BD2F61BE9057F00064192 /* CompanyHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyHeader.m; sourceTree = "<group>"; };
+		379BD2F81BE9059F00064192 /* CompanyHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyHeader.xib; sourceTree = "<group>"; };
 		8D750CFCC56E122A6EFA0A1B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BEB68366EE25D5FC5230A24C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FDAF7660015B6C2465F28B87 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +168,7 @@
 		04C4B8781BC64C17001E5ADC /* shexun */ = {
 			isa = PBXGroup;
 			children = (
+				379BD2E51BE8F8F000064192 /* Company */,
 				04D8D0721BDA13C1006CF690 /* DOPDropDownMenu */,
 				04D2E8F21BD4E90C00721EDD /* CTCheckbox */,
 				04D2A7181BCCB19900E1BE12 /* Utils */,
@@ -253,6 +271,24 @@
 				04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */,
 			);
 			path = DOPDropDownMenu;
+			sourceTree = "<group>";
+		};
+		379BD2E51BE8F8F000064192 /* Company */ = {
+			isa = PBXGroup;
+			children = (
+				379BD2F51BE9057F00064192 /* CompanyHeader.h */,
+				379BD2F61BE9057F00064192 /* CompanyHeader.m */,
+				379BD2F81BE9059F00064192 /* CompanyHeader.xib */,
+				379BD2F01BE8F9F100064192 /* CompanyCardViewController.h */,
+				379BD2F11BE8F9F100064192 /* CompanyCardViewController.m */,
+				379BD2EB1BE8F9B300064192 /* CompanyServiceViewController.h */,
+				379BD2EC1BE8F9B300064192 /* CompanyServiceViewController.m */,
+				379BD2E61BE8F92F00064192 /* CompanyActivityViewController.h */,
+				379BD2E71BE8F92F00064192 /* CompanyActivityViewController.m */,
+				379BD2E21BE8F8DA00064192 /* CompanyViewController.h */,
+				379BD2E31BE8F8DA00064192 /* CompanyViewController.m */,
+			);
+			name = Company;
 			sourceTree = "<group>";
 		};
 		424D37E421C8ADB42F3E056D /* Frameworks */ = {
@@ -360,6 +396,7 @@
 				04D2584E1BE21E3A006631E3 /* Localizable.strings in Resources */,
 				04C4B88D1BC64C17001E5ADC /* LaunchScreen.xib in Resources */,
 				04C4B88A1BC64C17001E5ADC /* Images.xcassets in Resources */,
+				379BD2F91BE9059F00064192 /* CompanyHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379BD2E41BE8F8DA00064192 /* CompanyViewController.m in Sources */,
 				04C4B8851BC64C17001E5ADC /* SecondViewController.m in Sources */,
 				04CAD4961BCF99FC00A7C1E4 /* FXForms.m in Sources */,
 				04D2A71E1BCCFB9B00E1BE12 /* RESideMenuViewController.m in Sources */,
@@ -434,19 +472,23 @@
 				04CAD49C1BCFA0FD00A7C1E4 /* RegistrationForm.m in Sources */,
 				04C5798F1BE36AE100C02F53 /* CitylistViewController.m in Sources */,
 				04C54F7E1BDE1BDD005933B5 /* NearViewController.m in Sources */,
+				379BD2EE1BE8F9B300064192 /* CompanyServiceViewController.m in Sources */,
 				04CAD4991BCF9AFA00A7C1E4 /* RegistationViewController.m in Sources */,
 				04D258471BE21855006631E3 /* UIIndexCollectionHeadView.m in Sources */,
 				04C4B87F1BC64C17001E5ADC /* AppDelegate.m in Sources */,
 				04C5FE6A1BE8A97D00588248 /* NewsDetailViewController.m in Sources */,
 				04D2A71B1BCCB1EE00E1BE12 /* AFUtil.m in Sources */,
+				379BD2F31BE8F9F100064192 /* CompanyCardViewController.m in Sources */,
 				04884A931BD8DD2C00E0CB20 /* MoreSettingViewController.m in Sources */,
 				04D11B451BE0BE5200C22396 /* UICompanyTableCell.m in Sources */,
 				04C4B8821BC64C17001E5ADC /* FirstViewController.m in Sources */,
+				379BD2E91BE8F92F00064192 /* CompanyActivityViewController.m in Sources */,
 				04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */,
 				04C4B87C1BC64C17001E5ADC /* main.m in Sources */,
 				04C5FE671BE8988800588248 /* UIIndexCollectionCell.m in Sources */,
 				04C4B8A41BC653EB001E5ADC /* LoginViewController.m in Sources */,
 				04D0E5C31BD76A2900C9F39E /* ForgetPasswordForm.m in Sources */,
+				379BD2F71BE9057F00064192 /* CompanyHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +573,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
@@ -567,7 +609,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

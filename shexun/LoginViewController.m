@@ -30,11 +30,12 @@
     [self recordpassDidChange:self.recordpass];
     [self.autologin addTarget:self action:@selector(autologinDidChange:) forControlEvents:UIControlEventValueChanged];
     self.autologin.textLabel.text = @"自动登录";
-    [self autologinDidChange:self.recordpass];
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"autologin"] isEqualToString:@"1"]) {
         self.autologin.checked = YES;
         [self loginAction:nil];
     }
+    [self autologinDidChange:self.autologin];
+  
 
 }
 

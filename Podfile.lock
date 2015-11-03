@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - ARSegmentPager (1.0)
   - BaiduMapAPI (2.8.1):
     - BaiduMapAPI/Default (= 2.8.1)
   - BaiduMapAPI/Default (2.8.1):
@@ -34,14 +35,25 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - ARSegmentPager (from `https://github.com/AugustRush/ARSegmentPager.git`)
   - BaiduMapAPI (~> 2.8.1)
   - ImagePlayerView
   - MBProgressHUD (~> 0.9.1)
   - RESideMenu (~> 4.0.7)
   - SDWebImage (~> 3.7)
 
+EXTERNAL SOURCES:
+  ARSegmentPager:
+    :git: https://github.com/AugustRush/ARSegmentPager.git
+
+CHECKOUT OPTIONS:
+  ARSegmentPager:
+    :commit: 95bb1de37df082da6f1f27251550d6bb20573e79
+    :git: https://github.com/AugustRush/ARSegmentPager.git
+
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  ARSegmentPager: 9b2d4afded4c8b760743b125a25f8bc0dc873bbb
   BaiduMapAPI: 2d03e12a51d5c6c49ece555c6bdda8562635cc02
   ImagePlayerView: c5db63e0548d711b16b2c7a3acae720216d0082b
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad

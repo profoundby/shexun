@@ -12,6 +12,7 @@
 #import "ServerAPI.h"
 #import  <MBProgressHUD.h>
 #import "UICompanyTableCell.h"
+#import "CompanyViewController.h"
 
 @implementation NearViewController
 
@@ -150,6 +151,11 @@
 #pragma mark 返回每组尾部说明
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
     return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    CompanyViewController *companyvc = [[CompanyViewController alloc] init];
+    [self.navigationController pushViewController:companyvc animated:YES];
 }
 
 /*- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
