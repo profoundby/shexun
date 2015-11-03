@@ -15,6 +15,10 @@
 {
     [super viewDidLoad];
     self.cityList = [NSArray arrayWithObjects:@"常州",@"上海",@"北京", nil];
+    for (NSString *city in self.cityList) {
+        char  c = pinyinFirstLetter([city characterAtIndex:0]);
+        [self.sectionList addObject:[[NSString stringWithFormat:@"%c",c] uppercaseString]];
+    }
 }
 
 #pragma mark - 数据源方法
@@ -45,12 +49,20 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
     char  c = pinyinFirstLetter([[self.cityList objectAtIndex:section] characterAtIndex:0]);
+    //[self.sectionList addObject:[[NSString stringWithFormat:@"%c",c] uppercaseString]];
     return [[NSString stringWithFormat:@"%c",c] uppercaseString];
 }
 
 #pragma mark 返回每组尾部说明
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
     return nil;
+}
+
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    
+    return self.sectionList;
+    
 }
 
 

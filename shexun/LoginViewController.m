@@ -7,6 +7,9 @@
 //
 
 #import "LoginViewController.h"
+#import "AFUtil.h"
+#import "ServerAPI.h"
+#import <MBProgressHUD.h>
 
 @interface LoginViewController ()
 
@@ -58,6 +61,39 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(IBAction)loginAction:(id)sender
+{
+    if (self.username.text.length == 0 || self.password.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"用户名或者密码不能为空" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        // optional - add more buttons:
+        [alert show];
+    }
+    else
+    {
+        NSMutableDictionary *logindic = [[NSMutableDictionary alloc] initWithCapacity:2];
+        [logindic setObject:self.username.text forKey:@"username"];
+        [logindic setObject:self.password.text forKey:@"password"];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        //hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"正在登录";
+        [AFUtil postJSONWithUrl:[NSString stringWithFormat:@"%@%@",SERVER_PREFIX,SX_LOGIN] parameters:nil success:^(id responseObject)
+         {
+             [hud hide:YES];
+             NSLog(@"%@",[responseObject objectForKey:@"result"]);
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录成功" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alert show];
+             
+         }fail:^(void)
+         {
+             [hud hide:YES];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alert show];
+             
+         }];
+    }
+}
+
 -(void) viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     

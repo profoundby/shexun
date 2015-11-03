@@ -13,7 +13,8 @@
 #endif
 
 
-#define  SERVER_PREFIX  @"http://172.16.10.155/index.php?m=mobile&c=yp&a="
+#define  SERVER_PREFIX  @"http://www.shexun.net.cn/index.php?m=mobile&c=yp&a="
 
 #define  SX_INDEX   @"index"
 
+#define  SX_LOGIN   @"login"

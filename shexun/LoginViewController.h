@@ -15,7 +15,9 @@
 
 @property (strong,nonatomic) IBOutlet CTCheckbox * recordpass;
 @property (weak,nonatomic) IBOutlet CTCheckbox * autologin;
+@property (nonatomic,retain) IBOutlet UITextField *username;
+@property (nonatomic,retain) IBOutlet UITextField *password;
 
-
+-(IBAction)loginAction:(id)sender;
 
 @end
