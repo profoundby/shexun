@@ -22,7 +22,8 @@
 {
     // Do any additional setup after loading the view.
     CompanyActivityViewController *activitytable = [[CompanyActivityViewController alloc] init];
-    CompanyServiceViewController *servicecollection = [[CompanyServiceViewController alloc] init];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    CompanyServiceViewController *servicecollection = [storyboard instantiateViewControllerWithIdentifier:@"companyservice"];
     CompanyCardViewController  *cardtable = [[CompanyCardViewController alloc]init];
     
     

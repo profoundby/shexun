@@ -7,6 +7,8 @@
 //
 
 #import "CompanyServiceViewController.h"
+#import "CompanyServiceCell.h"
+#import <UIImageView+WebCache.h>
 
 @interface CompanyServiceViewController ()
 
@@ -14,9 +16,9 @@
 
 @implementation CompanyServiceViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"companyservicecell";
 
-- (instancetype)init
+/*- (instancetype)init
  {
          //创建流水布局对象
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -31,16 +33,21 @@ static NSString * const reuseIdentifier = @"Cell";
          layout.minimumLineSpacing = 0;
     
          return [super initWithCollectionViewLayout:layout];
-}
+}*/
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
+    self.serviceimages = [NSArray arrayWithObjects:@"weibo_com_icon_about",@"weibo_com_icon_news",@"weibo_com_icon_product",@"weibo_com_icon_3d",@"weibo_com_icon_location",
+                          @"weibo_com_icon_video",@"weibo_com_icon_joinus",@"weibo_com_icon_weiapp",nil];
+    self.servicetexts = [NSArray arrayWithObjects:@"企业概况\n眼疾手快，迅速了解企业概况",@"企业资讯\n随时随地，知晓企业全方位资讯",@"产品中心",@"3D展厅",@"地理位置",
+                          @"企业视频",@"人才招聘",@"微APP",nil];
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    //[self.collectionView registerClass:[CompanyServiceCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView reloadData];
     
     // Do any additional setup after loading the view.
 }
@@ -68,22 +75,36 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 0;
+
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 0;
+    
+    return self.serviceimages.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+    CompanyServiceCell *cell = (CompanyServiceCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    [cell.servicelogo setImage:[UIImage imageNamed:[self.serviceimages objectAtIndex:[indexPath row]]]];
+    [cell.servicetext setText:[self.servicetexts objectAtIndex:[indexPath row]]];
     // Configure the cell
+
     
     return cell;
+}
+
+#pragma mark --UICollectionViewDelegateFlowLayout
+//定义每个UICollectionView 的大小
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+        return CGSizeMake((collectionView.frame.size.width -20)/2, 80);
+}
+//定义每个UICollectionView 的 margin
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(5, 5, 5, 5);
 }
 
 #pragma mark <UICollectionViewDelegate>
