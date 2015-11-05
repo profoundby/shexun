@@ -155,10 +155,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-     CompanyViewController *companyvc = [[CompanyViewController alloc] init];
+     //CompanyViewController *companyvc = [[CompanyViewController alloc] init];
     //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     //CompanyServiceViewController *servicecollection = [storyboard instantiateViewControllerWithIdentifier:@"companyservice"];
-    [self.navigationController pushViewController:companyvc animated:YES];
+    //[self.navigationController pushViewController:companyvc animated:YES];
 }
 
 /*- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

@@ -22,6 +22,7 @@
 		04C584A41BE9AED600C9549A /* CompanyServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C584A21BE9AED600C9549A /* CompanyServiceCell.m */; };
 		04C5FE671BE8988800588248 /* UIIndexCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FE661BE8988800588248 /* UIIndexCollectionCell.m */; };
 		04C5FE6A1BE8A97D00588248 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FE691BE8A97D00588248 /* NewsDetailViewController.m */; };
+		04C6E9CD1BEB48FE007199AB /* CompanyServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C6E9CC1BEB48FD007199AB /* CompanyServiceView.xib */; };
 		04CAD4961BCF99FC00A7C1E4 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD4951BCF99FC00A7C1E4 /* FXForms.m */; };
 		04CAD4991BCF9AFA00A7C1E4 /* RegistationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD4981BCF9AFA00A7C1E4 /* RegistationViewController.m */; };
 		04CAD49C1BCFA0FD00A7C1E4 /* RegistrationForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CAD49B1BCFA0FD00A7C1E4 /* RegistrationForm.m */; };
@@ -39,8 +40,6 @@
 		379BD2E91BE8F92F00064192 /* CompanyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2E71BE8F92F00064192 /* CompanyActivityViewController.m */; };
 		379BD2EE1BE8F9B300064192 /* CompanyServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2EC1BE8F9B300064192 /* CompanyServiceViewController.m */; };
 		379BD2F31BE8F9F100064192 /* CompanyCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2F11BE8F9F100064192 /* CompanyCardViewController.m */; };
-		379BD2F71BE9057F00064192 /* CompanyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2F61BE9057F00064192 /* CompanyHeader.m */; };
-		379BD2F91BE9059F00064192 /* CompanyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379BD2F81BE9059F00064192 /* CompanyHeader.xib */; };
 		5571792D93DE0B7656D98478 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAF7660015B6C2465F28B87 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +84,7 @@
 		04C5FE661BE8988800588248 /* UIIndexCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIIndexCollectionCell.m; sourceTree = "<group>"; };
 		04C5FE681BE8A97D00588248 /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
 		04C5FE691BE8A97D00588248 /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
+		04C6E9CC1BEB48FD007199AB /* CompanyServiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyServiceView.xib; sourceTree = "<group>"; };
 		04CAD4941BCF99FC00A7C1E4 /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
 		04CAD4951BCF99FC00A7C1E4 /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
 		04CAD4971BCF9AFA00A7C1E4 /* RegistationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistationViewController.h; sourceTree = "<group>"; };
@@ -121,9 +121,6 @@
 		379BD2EC1BE8F9B300064192 /* CompanyServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyServiceViewController.m; sourceTree = "<group>"; };
 		379BD2F01BE8F9F100064192 /* CompanyCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCardViewController.h; sourceTree = "<group>"; };
 		379BD2F11BE8F9F100064192 /* CompanyCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCardViewController.m; sourceTree = "<group>"; };
-		379BD2F51BE9057F00064192 /* CompanyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyHeader.h; sourceTree = "<group>"; };
-		379BD2F61BE9057F00064192 /* CompanyHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyHeader.m; sourceTree = "<group>"; };
-		379BD2F81BE9059F00064192 /* CompanyHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyHeader.xib; sourceTree = "<group>"; };
 		8D750CFCC56E122A6EFA0A1B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BEB68366EE25D5FC5230A24C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FDAF7660015B6C2465F28B87 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,13 +276,11 @@
 		379BD2E51BE8F8F000064192 /* Company */ = {
 			isa = PBXGroup;
 			children = (
-				379BD2F61BE9057F00064192 /* CompanyHeader.m */,
-				379BD2F51BE9057F00064192 /* CompanyHeader.h */,
-				379BD2F81BE9059F00064192 /* CompanyHeader.xib */,
 				379BD2F01BE8F9F100064192 /* CompanyCardViewController.h */,
 				379BD2F11BE8F9F100064192 /* CompanyCardViewController.m */,
 				379BD2EB1BE8F9B300064192 /* CompanyServiceViewController.h */,
 				379BD2EC1BE8F9B300064192 /* CompanyServiceViewController.m */,
+				04C6E9CC1BEB48FD007199AB /* CompanyServiceView.xib */,
 				379BD2E61BE8F92F00064192 /* CompanyActivityViewController.h */,
 				379BD2E71BE8F92F00064192 /* CompanyActivityViewController.m */,
 				379BD2E21BE8F8DA00064192 /* CompanyViewController.h */,
@@ -397,11 +392,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C6E9CD1BEB48FE007199AB /* CompanyServiceView.xib in Resources */,
 				04C4B8881BC64C17001E5ADC /* Main.storyboard in Resources */,
 				04D2584E1BE21E3A006631E3 /* Localizable.strings in Resources */,
 				04C4B88D1BC64C17001E5ADC /* LaunchScreen.xib in Resources */,
 				04C4B88A1BC64C17001E5ADC /* Images.xcassets in Resources */,
-				379BD2F91BE9059F00064192 /* CompanyHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +489,6 @@
 				04C5FE671BE8988800588248 /* UIIndexCollectionCell.m in Sources */,
 				04C4B8A41BC653EB001E5ADC /* LoginViewController.m in Sources */,
 				04D0E5C31BD76A2900C9F39E /* ForgetPasswordForm.m in Sources */,
-				379BD2F71BE9057F00064192 /* CompanyHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

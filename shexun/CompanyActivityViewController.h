@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ARSegmentPageController.h>
 
-@interface CompanyActivityViewController : UITableViewController<ARSegmentControllerDelegate>
+@interface CompanyActivityViewController : UITableViewController
 
 @end

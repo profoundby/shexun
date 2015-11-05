@@ -14,6 +14,7 @@
 
 @implementation CompanyActivityViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

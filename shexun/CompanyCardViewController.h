@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ARSegmentPageController.h>
 
-@interface CompanyCardViewController : UITableViewController<ARSegmentControllerDelegate>
+@interface CompanyCardViewController : UITableViewController
 
 @end

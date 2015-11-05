@@ -57,11 +57,6 @@ static NSString * const reuseIdentifier = @"companyservicecell";
     // Dispose of any resources that can be recreated.
 }
 
--(NSString *)segmentTitle
-{
-    return @"企业服务";
-}
-
 /*
 #pragma mark - Navigation
 
