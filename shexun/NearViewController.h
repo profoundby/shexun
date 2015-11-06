@@ -11,9 +11,14 @@
 
 @interface NearViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,DOPDropDownMenuDelegate,DOPDropDownMenuDataSource>
 
-@property (nonatomic, copy) NSArray *citys;
-@property (nonatomic, copy) NSArray *ages;
-@property (nonatomic, copy) NSArray *genders;
+@property (nonatomic, copy) NSArray *categorys;
+@property (nonatomic, strong) NSMutableDictionary *categorysdic;
+@property (nonatomic, copy) NSArray *subcategorys;
+@property (nonatomic, strong) NSMutableDictionary *subcategorysdic;
+@property (nonatomic, copy) NSArray *distances;
+@property (nonatomic, strong) NSMutableDictionary *distancesdic;
+@property (nonatomic, copy) NSArray *orders;
+@property (nonatomic, strong) NSMutableDictionary *ordersdic;
 @property (nonatomic, copy) NSArray *originalArray;
 @property (nonatomic, copy) NSArray *results;
 

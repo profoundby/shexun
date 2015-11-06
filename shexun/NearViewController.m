@@ -13,61 +13,84 @@
 #import  <MBProgressHUD.h>
 #import "UICompanyTableCell.h"
 #import "CompanyViewController.h"
-#import "CompanyServiceViewController.h"
 
 @implementation NearViewController
 
 -(void) viewDidLoad {
      [super viewDidLoad];
-    self.citys = @[NSLocalizedString(@"city1", @"city1"),
-                   NSLocalizedString(@"city2", @"city2"),
-                   NSLocalizedString(@"city3", @"city3")];
-    self.ages = @[NSLocalizedString(@"age", @"age"), @"20", @"30"];
-    self.genders = @[NSLocalizedString(@"gender1", @"gender1"),
-                     NSLocalizedString(@"gender2", @"gender2"),
-                     NSLocalizedString(@"gender3", @"gender3")];
-    self.originalArray = @[[NSString stringWithFormat:@"%@_%@_%@",self.citys[1],self.ages[1],self.genders[1]],
-                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[1],self.ages[1],self.genders[2]],
-                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[1],self.ages[2],self.genders[1]],
-                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[1],self.ages[2],self.genders[2]],
-                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[2],self.ages[1],self.genders[1]],
-                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[2],self.ages[1],self.genders[2]],
-                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[2],self.ages[2],self.genders[1]],
-                           [NSString stringWithFormat:@"%@_%@_%@",self.citys[2],self.ages[2],self.genders[2]]];
+    self.categorys = @[@"企业"];
+    self.subcategorys = @[@"分类"];
+    self.distances = @[@"距离"];
+    self.orders = @[@"筛选"];
     self.results = self.originalArray;
+    self.categorysdic = [[NSMutableDictionary alloc] init];
     
     DOPDropDownMenu *menu = [[DOPDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:40];
     menu.dataSource = self;
     menu.delegate = self;
     [self.view addSubview:menu];
     self.menu = menu;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@",SERVER_PREFIX,SX_COMCAT] success:^(id json) {
+        
+        NSMutableArray * cats = [[NSMutableArray alloc] init];
+        for (int i=0;i < [[[json objectForKey:@"result"] objectForKey:@"catids"] count] ; i++) {
+            [cats addObject: [[[[json objectForKey:@"result"] objectForKey:@"catids"] objectAtIndex:i] objectForKey:@"catname"]];
+            [self.categorysdic setObject:[[[json objectForKey:@"result"] objectForKey:@"catids"] objectAtIndex:i]  forKey:[[[[json objectForKey:@"result"] objectForKey:@"catids"] objectAtIndex:i] objectForKey:@"catname"]];
+        }
+        self.categorys = cats;
+        NSMutableArray *ords = [[NSMutableArray alloc] init];
+        [ords addObject:@"全部"];
+        self.ordersdic = [[json objectForKey:@"result"] objectForKey:@"orders"];
+        for (int i=0; i<[self.ordersdic count];i++) {
+            [ords addObject:[[self.ordersdic allValues] objectAtIndex:i]];
+        }
+        self.orders = ords;
+        
+    } fail:^{
+        
+    }];
+    
+    
     void (^successblock)(id json);
     successblock = ^(id json)
     {
-        NSLog(@"%@",json);
-        self.nearcomdata = [[json objectForKey:@"result"] objectForKey:@"companylist"];
+        self.nearcomdata = [json objectForKey:@"result"];
         [self.tableview reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     };
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@",SERVER_PREFIX,SX_INDEX] success:successblock fail:nil];
+    [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@",SERVER_PREFIX,SX_NEARCOM] success:successblock fail:nil];
 }
 
 - (NSInteger)numberOfColumnsInMenu:(DOPDropDownMenu *)menu {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)menu:(DOPDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column {
-    return 3;
+    switch (column) {
+        case 0: return self.categorys.count;
+            break;
+        case 1: return self.subcategorys.count;
+            break;
+        case 2: return self.distances.count;
+            break;
+        case 3: return self.orders.count;
+            break;
+        default:
+            return 1;
+            break;
+    }
 }
 
 - (NSString *)menu:(DOPDropDownMenu *)menu titleForRowAtIndexPath:(DOPIndexPath *)indexPath {
     switch (indexPath.column) {
-        case 0: return self.citys[indexPath.row];
+        case 0: return self.categorys[indexPath.row];
             break;
-        case 1: return self.genders[indexPath.row];
+        case 1: return self.subcategorys[indexPath.row];
             break;
-        case 2: return self.ages[indexPath.row];
+        case 2: return self.distances[indexPath.row];
+            break;
+        case 3: return self.orders[indexPath.row];
             break;
         default:
             return nil;
@@ -78,42 +101,19 @@
 - (void)menu:(DOPDropDownMenu *)menu didSelectRowAtIndexPath:(DOPIndexPath *)indexPath {
     NSLog(@"column:%li row:%li", (long)indexPath.column, (long)indexPath.row);
     NSLog(@"%@",[menu titleForRowAtIndexPath:indexPath]);
-    NSString *title = [menu titleForRowAtIndexPath:indexPath];
-    
-    static NSString *prediStr1 = @"SELF LIKE '*'",
-    *prediStr2 = @"SELF LIKE '*'",
-    *prediStr3 = @"SELF LIKE '*'";
-    switch (indexPath.column) {
-        case 0:{
-            if (indexPath.row == 0) {
-                prediStr1 = @"SELF LIKE '*'";
-            } else {
-                prediStr1 = [NSString stringWithFormat:@"SELF CONTAINS '%@'", title];
-            }
+    if([indexPath column] == 0)
+    {
+      NSMutableArray *subids = [[self.categorysdic objectForKey:[menu titleForRowAtIndexPath:indexPath]] objectForKey:@"subid"];
+        NSMutableArray * cats = [[NSMutableArray alloc] init];
+        for (int i=0; i<[subids count]; i++) {
+            [cats  addObject:[[subids objectAtIndex:i] objectForKey:@"catname"]];
         }
-            break;
-        case 1:{
-            if (indexPath.row == 0) {
-                prediStr2 = @"SELF LIKE '*'";
-            } else {
-                prediStr2 = [NSString stringWithFormat:@"SELF CONTAINS '%@'", title];
-            }
-        }
-            break;
-        case 2:{
-            if (indexPath.row == 0) {
-                prediStr3 = @"SELF LIKE '*'";
-            } else {
-                prediStr3 = [NSString stringWithFormat:@"SELF CONTAINS '%@'", title];
-            }
-        }
-            
-        default:
-            break;
+        self.subcategorys = cats;
     }
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"%@ AND %@ AND %@",prediStr1,prediStr2,prediStr3]];
     
-    self.results = [self.originalArray filteredArrayUsingPredicate:predicate];
+
+    
+    self.results = nil;
 }
 
 
@@ -138,7 +138,8 @@
         cell=[[UICompanyTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     cell.comName.text=[[self.nearcomdata objectAtIndex:[indexPath row]] objectForKey:@"companyname"];
-    cell.comDistance.text = [[self.nearcomdata objectAtIndex:[indexPath row]] objectForKey:@"areaname"];
+    NSString *distance = [NSString stringWithFormat:[NSString stringWithFormat:@"%%.2f" ],[[[self.nearcomdata objectAtIndex:[indexPath row]] objectForKey:@"distance"] floatValue]];
+    cell.comDistance.text = [NSString stringWithFormat:@"相距%@公里",distance];
     [cell.comImage  sd_setImageWithURL:[NSURL URLWithString:[[self.nearcomdata objectAtIndex:[indexPath row]] objectForKey:@"logo"]] placeholderImage:nil];
     return cell;
 }

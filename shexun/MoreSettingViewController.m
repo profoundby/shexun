@@ -8,13 +8,14 @@
 
 #import "MoreSettingViewController.h"
 
+
 @implementation MoreSettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //初始化数据
-    self.settingdata = [NSArray arrayWithObjects:@"扫描二维码",@"我的好友",@"生活服务",@"清楚缓存",@"自动更新", nil];
+    self.settingdata = [NSArray arrayWithObjects:@"扫描二维码",@"我的好友",@"生活服务",@"清除缓存",@"自动更新", nil];
     
     //创建一个分组样式的UITableView
     self.tableview=[[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
@@ -66,8 +67,20 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIImageView *headview = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login"]];
-    return  headview;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 50)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(tableView.frame.size.width/2 -100, 10, 200, 40)];
+    [button setBackgroundColor:[UIColor redColor]];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitle:@"注销登录" forState:UIControlStateNormal];
+    button.layer.cornerRadius = 5;
+    [button addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:button];
+    return  view;
+}
+
+-(void)logout:(id)sender
+{
+    [self.navigationController.tabBarController.parentViewController dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

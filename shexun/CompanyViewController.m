@@ -7,9 +7,6 @@
 //
 
 #import "CompanyViewController.h"
-#import "CompanyCardViewController.h"
-#import "CompanyActivityViewController.h"
-#import "CompanyServiceViewController.h"
 #import "CompanyServiceCell.h"
 
 @interface CompanyViewController ()
@@ -37,7 +34,23 @@ static NSString * const reuseIdentifier = @"companyservicecell";
     // Register cell classes
     //[self.collectionView registerClass:[CompanyServiceCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView reloadData];
+    self.segment.layer.cornerRadius = 0;
+    [self.segment addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
+    self.cardview = [CompanyCardView initview];
     
+}
+
+-(void)segmentChanged:(UISegmentedControl*)segmentcontrol
+{
+    if (segmentcontrol.selectedSegmentIndex == 2) {
+        [self.collectionView setHidden:YES];
+        [self.scrollview addSubview:self.cardview];
+    }
+    else
+    {
+        [self.cardview removeFromSuperview];
+    [self.collectionView setHidden:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

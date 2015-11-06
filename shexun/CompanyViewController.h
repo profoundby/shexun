@@ -6,6 +6,7 @@
 //
 //
 #import <UIKit/UIKit.h>
+#import "CompanyCardView.h"
 
 @interface CompanyViewController :UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
@@ -15,6 +16,9 @@
 @property (nonatomic,retain) IBOutlet UIButton *subscribebtn;
 @property (nonatomic,retain) IBOutlet UIScrollView *scrollview;
 @property (nonatomic,retain) IBOutlet UICollectionView *collectionView;
+@property (nonatomic,retain) IBOutlet UISegmentedControl *segment;
+
+@property (nonatomic,retain) CompanyCardView *cardview;
 
 @property (nonatomic,strong) NSArray * serviceimages;
 @property (nonatomic,strong) NSArray * servicetexts;
