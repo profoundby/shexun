@@ -8,6 +8,7 @@
 
 #import "CompanyViewController.h"
 #import "CompanyServiceCell.h"
+#import <UIImageView+WebCache.h>
 
 @interface CompanyViewController ()
 
@@ -16,6 +17,7 @@
 @implementation CompanyViewController
 
 static NSString * const reuseIdentifier = @"companyservicecell";
+@synthesize company;
 
 
 - (void)viewDidLoad {
@@ -37,19 +39,35 @@ static NSString * const reuseIdentifier = @"companyservicecell";
     self.segment.layer.cornerRadius = 0;
     [self.segment addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
     self.cardview = [CompanyCardView initview];
+    [self.cardview setFrame:CGRectMake(0, 0, self.scrollview.frame.size.width, self.view.frame.size.height)];
+    self.activityview = [CompanyActivityView initview];
+    self.activityview.tableview.dataSource = self;
+    self.activityview.tableview.delegate = self;
+    [self.activityview setFrame:CGRectMake(0, 0, self.scrollview.frame.size.width, self.view.frame.size.height)];
+    [self.companylogo sd_setImageWithURL:[NSURL URLWithString:[company objectForKey:@"logo"]] placeholderImage:[UIImage imageNamed:@"ic_launcher"]];
+    [self.companyname setText:[company objectForKey:@"companyname"]];
+    [self.scrollview addSubview:self.activityview];
+    [self.scrollview addSubview:self.collectionView];
+    [self.scrollview addSubview:self.cardview];
     
+    [self.scrollview bringSubviewToFront:self.activityview];
+
 }
 
 -(void)segmentChanged:(UISegmentedControl*)segmentcontrol
 {
-    if (segmentcontrol.selectedSegmentIndex == 2) {
-        [self.collectionView setHidden:YES];
-        [self.scrollview addSubview:self.cardview];
+    if (segmentcontrol.selectedSegmentIndex == 0) {
+       
+        [self.scrollview bringSubviewToFront:self.activityview];
+    }
+    
+    else if (segmentcontrol.selectedSegmentIndex == 1) {
+        [self.scrollview bringSubviewToFront:self.collectionView];
+        
     }
     else
     {
-        [self.cardview removeFromSuperview];
-    [self.collectionView setHidden:NO];
+       [self.scrollview bringSubviewToFront:self.cardview];
     }
 }
 
@@ -103,5 +121,42 @@ static NSString * const reuseIdentifier = @"companyservicecell";
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - 数据源方法
+#pragma mark 返回分组数
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+#pragma mark 返回每组行数
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+}
+
+#pragma mark返回每行的单元格
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //NSIndexPath是一个结构体，记录了组和行信息
+    //UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"newscell"];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+  
+    [cell.textLabel setText:[NSString stringWithFormat:@"%ld",(long)[indexPath row]]];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return  80;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   /* UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    NewsDetailViewController   *newsvc = (NewsDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"newsdetail"];
+    newsvc.titletext =[[self.newslist objectAtIndex:[indexPath row]]objectForKey:@"title" ];
+    newsvc.newsid = [[self.newslist objectAtIndex:[indexPath row]]objectForKey:@"id" ];
+    [self showViewController:newsvc sender:self];*/
+}
+
+
 
 @end

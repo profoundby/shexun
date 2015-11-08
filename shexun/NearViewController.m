@@ -160,6 +160,7 @@
     //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     //CompanyServiceViewController *servicecollection = [storyboard instantiateViewControllerWithIdentifier:@"companyservice"];
     //[self.navigationController pushViewController:companyvc animated:YES];
+    self.selectIndex = [indexPath row];
 }
 
 /*- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -175,5 +176,11 @@
     return  headview;
 } */
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+        id theSegue = segue.destinationViewController;
+        [theSegue setValue:[self.nearcomdata objectAtIndex:[[self.tableview indexPathForSelectedRow] row]] forKey:@"company"];
+}
 
 @end

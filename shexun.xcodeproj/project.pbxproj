@@ -40,6 +40,8 @@
 		04D2A7211BCCFDB700E1BE12 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A7201BCCFDB700E1BE12 /* LeftMenuViewController.m */; };
 		04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2E8F51BD4E90C00721EDD /* CTCheckbox.m */; };
 		04D8D0751BDA13C1006CF690 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */; };
+		37116A431BEF420000A87D41 /* CompanyActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37116A421BEF420000A87D41 /* CompanyActivityView.m */; };
+		37116A451BEF438400A87D41 /* CompanyActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37116A441BEF438400A87D41 /* CompanyActivityView.xib */; };
 		379BD2E41BE8F8DA00064192 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2E31BE8F8DA00064192 /* CompanyViewController.m */; };
 		5571792D93DE0B7656D98478 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAF7660015B6C2465F28B87 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -122,6 +124,9 @@
 		04D8D0731BDA13C1006CF690 /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
 		04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
 		04D964B11BCB83380018935A /* ServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerAPI.h; sourceTree = "<group>"; };
+		37116A411BEF420000A87D41 /* CompanyActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyActivityView.h; sourceTree = "<group>"; };
+		37116A421BEF420000A87D41 /* CompanyActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyActivityView.m; sourceTree = "<group>"; };
+		37116A441BEF438400A87D41 /* CompanyActivityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyActivityView.xib; sourceTree = "<group>"; };
 		379BD2E21BE8F8DA00064192 /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		379BD2E31BE8F8DA00064192 /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
 		8D750CFCC56E122A6EFA0A1B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -285,6 +290,9 @@
 		379BD2E51BE8F8F000064192 /* Company */ = {
 			isa = PBXGroup;
 			children = (
+				37116A411BEF420000A87D41 /* CompanyActivityView.h */,
+				37116A421BEF420000A87D41 /* CompanyActivityView.m */,
+				37116A441BEF438400A87D41 /* CompanyActivityView.xib */,
 				379BD2E21BE8F8DA00064192 /* CompanyViewController.h */,
 				379BD2E31BE8F8DA00064192 /* CompanyViewController.m */,
 				04C9CF491BEC95B50095EA9B /* CompanyCardView.h */,
@@ -400,6 +408,7 @@
 				04C4B8881BC64C17001E5ADC /* Main.storyboard in Resources */,
 				04D2584E1BE21E3A006631E3 /* Localizable.strings in Resources */,
 				04C4B88D1BC64C17001E5ADC /* LaunchScreen.xib in Resources */,
+				37116A451BEF438400A87D41 /* CompanyActivityView.xib in Resources */,
 				04C4B88A1BC64C17001E5ADC /* Images.xcassets in Resources */,
 				04C9CF4D1BEC95F30095EA9B /* CompanyCardView.xib in Resources */,
 			);
@@ -482,6 +491,7 @@
 				04D258471BE21855006631E3 /* UIIndexCollectionHeadView.m in Sources */,
 				04C4B87F1BC64C17001E5ADC /* AppDelegate.m in Sources */,
 				04C5FE6A1BE8A97D00588248 /* NewsDetailViewController.m in Sources */,
+				37116A431BEF420000A87D41 /* CompanyActivityView.m in Sources */,
 				04D2A71B1BCCB1EE00E1BE12 /* AFUtil.m in Sources */,
 				04C9CF451BEC7B2D0095EA9B /* UINewsTableViewCell.m in Sources */,
 				04884A931BD8DD2C00E0CB20 /* MoreSettingViewController.m in Sources */,
