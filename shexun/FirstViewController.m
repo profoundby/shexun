@@ -14,6 +14,7 @@
 #import "UIIndexCollectionHeadView.h"
 #import "UIIndexCollectionCell.h"
 #import "NewsDetailViewController.h"
+#import "CompanyViewController.h"
 
 @interface FirstViewController ()　
 
@@ -119,11 +120,18 @@
         [cell.title setText:[[[[self.indexDic objectForKey:@"result"] objectForKey:@"newslist"] objectAtIndex:[indexPath row]] objectForKey:@"title"]];
         [cell.title setHidden:NO];
     }
-    else
+    else if ([indexPath section] == 1)
     {
     [cell.logo sd_setImageWithURL:[[[[self.indexDic objectForKey:@"result"] objectForKey:@"companylist"] objectAtIndex:[indexPath row]] objectForKey:@"logo"] placeholderImage:[UIImage imageNamed:@"ic_launcher"]];
     [cell.title setHidden:YES];
     }
+    else
+    {
+        [cell.logo sd_setImageWithURL:[[[[self.indexDic objectForKey:@"result"] objectForKey:@"hotcompany"] objectAtIndex:[indexPath row]] objectForKey:@"logo"] placeholderImage:[UIImage imageNamed:@"ic_launcher"]];
+        [cell.title setHidden:YES];
+        
+    }
+        
     return cell;
 }
 #pragma mark --UICollectionViewDelegateFlowLayout
@@ -152,6 +160,17 @@
         newsvc.titletext =[[[[self.indexDic objectForKey:@"result"] objectForKey:@"newslist"] objectAtIndex:[indexPath row]] objectForKey:@"title"];
         newsvc.newsid = [[[[self.indexDic objectForKey:@"result"] objectForKey:@"newslist"] objectAtIndex:[indexPath row]] objectForKey:@"id"];
         [self showViewController:newsvc sender:self];
+    }
+    else
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        CompanyViewController   *comvc = (CompanyViewController *)[storyboard instantiateViewControllerWithIdentifier:@"companyview"];
+        if([indexPath section] == 1)
+        comvc.company = [[[self.indexDic objectForKey:@"result"] objectForKey:@"companylist"] objectAtIndex:[indexPath row]];
+        else
+        comvc.company = [[[self.indexDic objectForKey:@"result"] objectForKey:@"hotcompany"] objectAtIndex:[indexPath row]];
+        [self showViewController:comvc sender:self];
+        
     }
 }
 //返回这个UICollectionView是否可以被选择

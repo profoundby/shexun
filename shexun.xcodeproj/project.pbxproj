@@ -22,6 +22,8 @@
 		04C584A41BE9AED600C9549A /* CompanyServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C584A21BE9AED600C9549A /* CompanyServiceCell.m */; };
 		04C5FE671BE8988800588248 /* UIIndexCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FE661BE8988800588248 /* UIIndexCollectionCell.m */; };
 		04C5FE6A1BE8A97D00588248 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FE691BE8A97D00588248 /* NewsDetailViewController.m */; };
+		04C6B5EC1BF0984C00C63C34 /* HTKSampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C6B5EB1BF0984C00C63C34 /* HTKSampleTableViewCell.m */; };
+		04C6B5F01BF0986200C63C34 /* HTKDynamicResizingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C6B5EF1BF0986200C63C34 /* HTKDynamicResizingTableViewCell.m */; };
 		04C9CF421BEC6BD70095EA9B /* NewslistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CF411BEC6BD70095EA9B /* NewslistViewController.m */; };
 		04C9CF451BEC7B2D0095EA9B /* UINewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CF441BEC7B2D0095EA9B /* UINewsTableViewCell.m */; };
 		04C9CF481BEC91F20095EA9B /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C9CF471BEC91F20095EA9B /* CommunityViewController.m */; };
@@ -87,6 +89,11 @@
 		04C5FE661BE8988800588248 /* UIIndexCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIIndexCollectionCell.m; sourceTree = "<group>"; };
 		04C5FE681BE8A97D00588248 /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
 		04C5FE691BE8A97D00588248 /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
+		04C6B5EA1BF0984C00C63C34 /* HTKSampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKSampleTableViewCell.h; sourceTree = "<group>"; };
+		04C6B5EB1BF0984C00C63C34 /* HTKSampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKSampleTableViewCell.m; sourceTree = "<group>"; };
+		04C6B5ED1BF0986200C63C34 /* HTKDynamicResizingCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKDynamicResizingCellProtocol.h; sourceTree = "<group>"; };
+		04C6B5EE1BF0986200C63C34 /* HTKDynamicResizingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKDynamicResizingTableViewCell.h; sourceTree = "<group>"; };
+		04C6B5EF1BF0986200C63C34 /* HTKDynamicResizingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKDynamicResizingTableViewCell.m; sourceTree = "<group>"; };
 		04C9CF401BEC6BD70095EA9B /* NewslistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewslistViewController.h; sourceTree = "<group>"; };
 		04C9CF411BEC6BD70095EA9B /* NewslistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewslistViewController.m; sourceTree = "<group>"; };
 		04C9CF431BEC7B2D0095EA9B /* UINewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINewsTableViewCell.h; sourceTree = "<group>"; };
@@ -290,6 +297,11 @@
 		379BD2E51BE8F8F000064192 /* Company */ = {
 			isa = PBXGroup;
 			children = (
+				04C6B5ED1BF0986200C63C34 /* HTKDynamicResizingCellProtocol.h */,
+				04C6B5EE1BF0986200C63C34 /* HTKDynamicResizingTableViewCell.h */,
+				04C6B5EF1BF0986200C63C34 /* HTKDynamicResizingTableViewCell.m */,
+				04C6B5EA1BF0984C00C63C34 /* HTKSampleTableViewCell.h */,
+				04C6B5EB1BF0984C00C63C34 /* HTKSampleTableViewCell.m */,
 				37116A411BEF420000A87D41 /* CompanyActivityView.h */,
 				37116A421BEF420000A87D41 /* CompanyActivityView.m */,
 				37116A441BEF438400A87D41 /* CompanyActivityView.xib */,
@@ -499,8 +511,10 @@
 				04C584A41BE9AED600C9549A /* CompanyServiceCell.m in Sources */,
 				04C4B8821BC64C17001E5ADC /* FirstViewController.m in Sources */,
 				04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */,
+				04C6B5F01BF0986200C63C34 /* HTKDynamicResizingTableViewCell.m in Sources */,
 				04C4B87C1BC64C17001E5ADC /* main.m in Sources */,
 				04C5FE671BE8988800588248 /* UIIndexCollectionCell.m in Sources */,
+				04C6B5EC1BF0984C00C63C34 /* HTKSampleTableViewCell.m in Sources */,
 				04C9CF4B1BEC95B50095EA9B /* CompanyCardView.m in Sources */,
 				04C4B8A41BC653EB001E5ADC /* LoginViewController.m in Sources */,
 				04D0E5C31BD76A2900C9F39E /* ForgetPasswordForm.m in Sources */,

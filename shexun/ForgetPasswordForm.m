@@ -19,15 +19,13 @@
              
              @{FXFormFieldKey:@"phone",FXFormFieldTitle:@"手机号码",FXFormFieldHeader: @"忘记密码"},
              @{FXFormFieldTitle: @"获取验证码", FXFormFieldAction: @"sendVerifyCode:"},
-             @"验证码",
+             @{FXFormFieldKey:@"verifycode",FXFormFieldTitle:@"验证码"},
              
              //we don't need to modify these fields at all, so we'll
              //just refer to them by name to use the default settings
-             @{FXFormFieldKey: @"name",FXFormFieldTitle: @"账号",
-               @"textField.autocapitalizationType": @(UITextAutocapitalizationTypeWords)},
              
-             @{FXFormFieldKey:@"password",FXFormFieldTitle:@"密码",FXFormFieldType:FXFormFieldTypePassword},
-             @{FXFormFieldKey:@"repeatpassword",FXFormFieldTitle:@"确认密码",FXFormFieldType:FXFormFieldTypePassword},
+             @{FXFormFieldKey:@"password",FXFormFieldTitle:@"新密码",FXFormFieldType:FXFormFieldTypePassword},
+             @{FXFormFieldKey:@"repeatPassword",FXFormFieldTitle:@"确认密码",FXFormFieldType:FXFormFieldTypePassword},
              
              
              @{FXFormFieldTitle: @"修改密码", FXFormFieldHeader: @"", FXFormFieldAction: @"submitRegistrationForm:"},

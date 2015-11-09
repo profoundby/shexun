@@ -13,4 +13,6 @@
 
 + (void)JSONDataWithUrl:(NSString *)url success:(void (^)(id json))success fail:(void (^)())fail;
 + (void)postJSONWithUrl:(NSString *)urlStr parameters:(id)parameters success:(void (^)(id responseObject))success fail:(void (^)())fail;
++ (BOOL)checkPhoneNumInput:(NSString *)phoneNum;
++ (NSString *)removeHTML:(NSString *)html ;
 @end

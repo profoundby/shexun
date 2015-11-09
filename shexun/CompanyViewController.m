@@ -9,6 +9,10 @@
 #import "CompanyViewController.h"
 #import "CompanyServiceCell.h"
 #import <UIImageView+WebCache.h>
+#import "AFUtil.h"
+#import "ServerAPI.h"
+#import <MBProgressHUD.h>
+#import "HTKSampleTableViewCell.h"
 
 @interface CompanyViewController ()
 
@@ -17,6 +21,7 @@
 @implementation CompanyViewController
 
 static NSString * const reuseIdentifier = @"companyservicecell";
+static NSString *HTKSampleTableViewCellIdentifier = @"HTKSampleTableViewCellIdentifier";
 @synthesize company;
 
 
@@ -49,9 +54,96 @@ static NSString * const reuseIdentifier = @"companyservicecell";
     [self.scrollview addSubview:self.activityview];
     [self.scrollview addSubview:self.collectionView];
     [self.scrollview addSubview:self.cardview];
+    NSMutableAttributedString *content = [[NSMutableAttributedString alloc]initWithString:[self.company objectForKey:@"web_url"]];
+    NSRange contentRange = {0,[content length]};
+    [content addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:contentRange];
+    self.cardview.website.attributedText = content;
+    [self.cardview.introduce setText:[AFUtil removeHTML:[self.company objectForKey:@"introduce"]]];
+    [self.cardview.tel setText:[self.company objectForKey:@"telephone"]];
+    [self.cardview.address setText:[self.company objectForKey:@"address"]];
     
     [self.scrollview bringSubviewToFront:self.activityview];
+    UITapGestureRecognizer *tapGestureWeb = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openWebpage:)];
+    [self.cardview.website addGestureRecognizer:tapGestureWeb];
+    UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openDialpage:)];
+    [self.cardview.tel addGestureRecognizer:tapGestureTel];
+    [self.activityview.tableview registerClass:[HTKSampleTableViewCell class] forCellReuseIdentifier:HTKSampleTableViewCellIdentifier];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@&userid=%@",SERVER_PREFIX,SX_COMPANY,[self.company objectForKey:@"userid"]] success:^(id json) {
+        if([[json objectForKey:@"status"] integerValue] == 200) {
+            self.companyactivities = [[json objectForKey:@"result"] objectForKey:@"activities"];
+            [self.companyfans setText:[NSString stringWithFormat:@"粉丝：%@  人气：%@",[[json objectForKey:@"result"] objectForKey:@"fans"],[[json objectForKey:@"result"] objectForKey:@"hits"]]];
+            [self.activityview.tableview reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+    } fail:^{
+       [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+    [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@&userid=%@",SERVER_PREFIX,SX_ADDHIT,[self.company objectForKey:@"userid"]] success:nil fail:nil];
+    [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@&userid=%@&companyid=%@",SERVER_PREFIX,SX_ISFANS,[[[NSUserDefaults standardUserDefaults] objectForKey:@"userinfo"] objectForKey:@"userid"],[self.company objectForKey:@"userid"]] success:^(id json) {
+         if([[json objectForKey:@"status"] integerValue] == 200)
+         {
+             [self.subscribebtn setTitle:@"取消" forState:UIControlStateNormal];
+         }
+     }
+    fail:^{
+                            
+     }];
+    [self.subscribebtn addTarget:self action:@selector(addfans:) forControlEvents:UIControlEventTouchUpInside];
 
+}
+
+-(void)addfans:(UIButton *)sender
+{
+    if([sender.titleLabel.text isEqual:@"关注"])
+    {
+        [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@&userid=%@&companyid=%@",SERVER_PREFIX,SX_ADDFANS,[[[NSUserDefaults standardUserDefaults] objectForKey:@"userinfo"] objectForKey:@"userid"],[self.company objectForKey:@"userid"]] success:^(id json) {
+            if([[json objectForKey:@"status"] integerValue] == 200)
+            {
+                [self.subscribebtn setTitle:@"取消" forState:UIControlStateNormal];
+                [[[UIAlertView alloc] initWithTitle:@"关注成功" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+            }
+            else
+            {
+                [self.subscribebtn setTitle:@"取消" forState:UIControlStateNormal];
+                [[[UIAlertView alloc] initWithTitle:[json  objectForKey:@"result"] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+            }
+        }
+             fail:^{
+                [[[UIAlertView alloc] initWithTitle:@"获取数据失败，请稍后重试" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+                 
+             }];
+    }
+    else
+    {
+        [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@&userid=%@&companyid=%@",SERVER_PREFIX,SX_DELFANS,[[[NSUserDefaults standardUserDefaults] objectForKey:@"userinfo"] objectForKey:@"userid"],[self.company objectForKey:@"userid"]] success:^(id json) {
+            if([[json objectForKey:@"status"] integerValue] == 200)
+            {
+                [self.subscribebtn setTitle:@"关注" forState:UIControlStateNormal];
+                [[[UIAlertView alloc] initWithTitle:@"取消关注成功" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+            }
+            else
+            {
+                [self.subscribebtn setTitle:@"关注" forState:UIControlStateNormal];
+                [[[UIAlertView alloc] initWithTitle:[json  objectForKey:@"result"] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+            }
+        }
+                           fail:^{
+                               [[[UIAlertView alloc] initWithTitle:@"获取数据失败，请稍后重试" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+                               
+                           }];
+    }
+    
+}
+
+-(void)openWebpage:(UITapGestureRecognizer *)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@",self.cardview.website.text]]];
+}
+
+-(void)openDialpage:(UITapGestureRecognizer *)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.cardview.tel.text]]];
 }
 
 -(void)segmentChanged:(UISegmentedControl*)segmentcontrol
@@ -97,6 +189,7 @@ static NSString * const reuseIdentifier = @"companyservicecell";
     
     
     return cell;
+
 }
 
 #pragma mark --UICollectionViewDelegateFlowLayout
@@ -130,23 +223,30 @@ static NSString * const reuseIdentifier = @"companyservicecell";
 
 #pragma mark 返回每组行数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    if ([self.companyactivities isEqual:[NSNull null]]) {
+        return 0;
+    }
+    return [self.companyactivities count];
 }
 
 #pragma mark返回每行的单元格
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSIndexPath是一个结构体，记录了组和行信息
     //UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"newscell"];
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+   /* UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
   
-    [cell.textLabel setText:[NSString stringWithFormat:@"%ld",(long)[indexPath row]]];
+    [cell.textLabel setText:[[self.companyactivities objectAtIndex:[indexPath row]] objectForKey:@"content"]];
+    return cell;*/
+    HTKSampleTableViewCell *cell = (HTKSampleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:HTKSampleTableViewCellIdentifier forIndexPath:indexPath];
+    
+    // Load data
+    NSDictionary *dataDict = self.companyactivities[indexPath.row];
+    // Sample image
+    [cell setupCellWithData:dataDict andImage:[self.company objectForKey:@"logo"]];
+    
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return  80;
-}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

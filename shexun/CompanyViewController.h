@@ -26,5 +26,9 @@
 
 @property (nonatomic,strong) NSArray * serviceimages;
 @property (nonatomic,strong) NSArray * servicetexts;
+@property (nonatomic,copy)  NSArray * companyactivities;
+
+-(void)openWebpage:(id)sender;
+-(void)openDialpage:(id)sender;
 
 @end
