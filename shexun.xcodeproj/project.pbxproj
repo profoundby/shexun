@@ -43,6 +43,8 @@
 		04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2E8F51BD4E90C00721EDD /* CTCheckbox.m */; };
 		04D8D0751BDA13C1006CF690 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */; };
 		04E48D571BF1D06300F635DB /* CommonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E48D561BF1D06300F635DB /* CommonListViewController.m */; };
+		37064BAE1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37064BAC1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.m */; };
+		37064BAF1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37064BAD1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.xib */; };
 		37116A431BEF420000A87D41 /* CompanyActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37116A421BEF420000A87D41 /* CompanyActivityView.m */; };
 		37116A451BEF438400A87D41 /* CompanyActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37116A441BEF438400A87D41 /* CompanyActivityView.xib */; };
 		379BD2E41BE8F8DA00064192 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2E31BE8F8DA00064192 /* CompanyViewController.m */; };
@@ -134,6 +136,9 @@
 		04D964B11BCB83380018935A /* ServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerAPI.h; sourceTree = "<group>"; };
 		04E48D551BF1D06300F635DB /* CommonListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonListViewController.h; sourceTree = "<group>"; };
 		04E48D561BF1D06300F635DB /* CommonListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonListViewController.m; sourceTree = "<group>"; };
+		37064BAB1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyActivityTableViewCell.h; sourceTree = "<group>"; };
+		37064BAC1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyActivityTableViewCell.m; sourceTree = "<group>"; };
+		37064BAD1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyActivityTableViewCell.xib; sourceTree = "<group>"; };
 		37116A411BEF420000A87D41 /* CompanyActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyActivityView.h; sourceTree = "<group>"; };
 		37116A421BEF420000A87D41 /* CompanyActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyActivityView.m; sourceTree = "<group>"; };
 		37116A441BEF438400A87D41 /* CompanyActivityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyActivityView.xib; sourceTree = "<group>"; };
@@ -317,6 +322,9 @@
 				04C9CF4C1BEC95F30095EA9B /* CompanyCardView.xib */,
 				04C584A11BE9AED600C9549A /* CompanyServiceCell.h */,
 				04C584A21BE9AED600C9549A /* CompanyServiceCell.m */,
+				37064BAB1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.h */,
+				37064BAC1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.m */,
+				37064BAD1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -426,6 +434,7 @@
 				04D2584E1BE21E3A006631E3 /* Localizable.strings in Resources */,
 				04C4B88D1BC64C17001E5ADC /* LaunchScreen.xib in Resources */,
 				37116A451BEF438400A87D41 /* CompanyActivityView.xib in Resources */,
+				37064BAF1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.xib in Resources */,
 				04C4B88A1BC64C17001E5ADC /* Images.xcassets in Resources */,
 				04C9CF4D1BEC95F30095EA9B /* CompanyCardView.xib in Resources */,
 			);
@@ -513,6 +522,7 @@
 				04C9CF451BEC7B2D0095EA9B /* UINewsTableViewCell.m in Sources */,
 				04884A931BD8DD2C00E0CB20 /* MoreSettingViewController.m in Sources */,
 				04D11B451BE0BE5200C22396 /* UICompanyTableCell.m in Sources */,
+				37064BAE1BF22B2A004D3CE6 /* CompanyActivityTableViewCell.m in Sources */,
 				04C584A41BE9AED600C9549A /* CompanyServiceCell.m in Sources */,
 				04C4B8821BC64C17001E5ADC /* FirstViewController.m in Sources */,
 				04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */,

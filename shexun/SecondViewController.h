@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <BaiduMapAPI/BMapKit.h>
 
-@interface SecondViewController : UIViewController <BMKLocationServiceDelegate>
+@interface SecondViewController : UIViewController <BMKMapViewDelegate>
 
 {
     BMKLocationService *_locService;
@@ -18,6 +18,7 @@
 }
 
 @property (nonatomic,copy) NSString * location;
+@property (nonatomic,copy) NSDictionary *company;
 
 
 @end

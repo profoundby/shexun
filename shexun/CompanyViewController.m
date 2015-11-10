@@ -12,7 +12,7 @@
 #import "AFUtil.h"
 #import "ServerAPI.h"
 #import <MBProgressHUD.h>
-#import "HTKSampleTableViewCell.h"
+#import "CompanyActivityTableViewCell.h"
 #import "NewsDetailViewController.h"
 #import "CommonListViewController.h"
 #import "SecondViewController.h"
@@ -24,7 +24,7 @@
 @implementation CompanyViewController
 
 static NSString * const reuseIdentifier = @"companyservicecell";
-static NSString *HTKSampleTableViewCellIdentifier = @"HTKSampleTableViewCellIdentifier";
+static NSString * const identifier = @"Cell";
 @synthesize company;
 
 
@@ -64,13 +64,13 @@ static NSString *HTKSampleTableViewCellIdentifier = @"HTKSampleTableViewCellIden
     [self.cardview.introduce setText:[AFUtil removeHTML:[self.company objectForKey:@"introduce"]]];
     [self.cardview.tel setText:[self.company objectForKey:@"telephone"]];
     [self.cardview.address setText:[self.company objectForKey:@"address"]];
-    
+    [self.activityview.tableview registerNib:[UINib nibWithNibName:@"CompanyActivityTableViewCell" bundle:nil] forCellReuseIdentifier:identifier];
+
     [self.scrollview bringSubviewToFront:self.activityview];
     UITapGestureRecognizer *tapGestureWeb = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openWebpage:)];
     [self.cardview.website addGestureRecognizer:tapGestureWeb];
     UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openDialpage:)];
     [self.cardview.tel addGestureRecognizer:tapGestureTel];
-    [self.activityview.tableview registerClass:[HTKSampleTableViewCell class] forCellReuseIdentifier:HTKSampleTableViewCellIdentifier];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@&userid=%@",SERVER_PREFIX,SX_COMPANY,[self.company objectForKey:@"userid"]] success:^(id json) {
         if([[json objectForKey:@"status"] integerValue] == 200) {
@@ -242,7 +242,12 @@ static NSString *HTKSampleTableViewCellIdentifier = @"HTKSampleTableViewCellIden
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         SecondViewController   *mapvc = (SecondViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mapview"];
         mapvc.location = [self.company objectForKey:@"map"];
+        mapvc.company = self.company;
         [self showViewController:mapvc sender:self];
+    }
+    else if([indexPath row] == 7)
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.shexun.net.cn/index.php?m=yp&c=com_index&userid=%@",[self.company objectForKey:@"userid"]]]];
     }
     
     
@@ -275,19 +280,19 @@ static NSString *HTKSampleTableViewCellIdentifier = @"HTKSampleTableViewCellIden
 
 #pragma mark返回每行的单元格
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //NSIndexPath是一个结构体，记录了组和行信息
-    //UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"newscell"];
-   /* UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-  
-    [cell.textLabel setText:[[self.companyactivities objectAtIndex:[indexPath row]] objectForKey:@"content"]];
-    return cell;*/
-    HTKSampleTableViewCell *cell = (HTKSampleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:HTKSampleTableViewCellIdentifier forIndexPath:indexPath];
-    
-    // Load data
-    NSDictionary *dataDict = self.companyactivities[indexPath.row];
-    // Sample image
-    [cell setupCellWithData:dataDict andImage:[self.company objectForKey:@"logo"]];
-    
+    CompanyActivityTableViewCell *cell = (CompanyActivityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"CompanyActivityTableViewCell" owner:self options:nil] lastObject];
+    }
+    CGSize boundSize = CGSizeMake(216, CGFLOAT_MAX);
+    cell.companyname.text = [self.company objectForKey:@"companyname"];
+    cell.activitytitle.text = [[[self.company objectForKey:@"activities"] objectAtIndex:[indexPath row]] objectForKey:@"title"];
+    cell.activitycontent.text = [[[self.company objectForKey:@"activities"] objectAtIndex:[indexPath row]] objectForKey:@"content"];
+    [cell.companylogo sd_setImageWithURL:[NSURL URLWithString:[self.company objectForKey:@"logo"]]];
+    CGSize requiredSize = [cell.activitycontent.text sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:boundSize lineBreakMode:NSLineBreakByWordWrapping];
+    CGRect rect = cell.frame;
+    rect.size.height = requiredSize.height;
+    cell.frame = rect;
     return cell;
 }
 
@@ -302,26 +307,8 @@ static NSString *HTKSampleTableViewCellIdentifier = @"HTKSampleTableViewCellIden
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    __weak typeof(self) weakSelf = self;
-    CGSize defaultSize = [HTKSampleTableViewCell defaultCellSize];
-    
-    // Create our size
-    CGSize cellSize = [HTKSampleTableViewCell sizeForCellWithDefaultSize:defaultSize setupCellBlock:^id(id<HTKDynamicResizingCellProtocol> cellToSetup) {
-        // set values - there's no need to set the image here
-        // because we have height and width constraints set, so
-        // nil image will end up measuring to that size. If you don't
-        // set the image contraints, it will end up being it's 1x intrinsic
-        // size of the image, so you should set a default image when you
-        // create the cell.
-        NSDictionary *dataDict = weakSelf.companyactivities[indexPath.row];
-        [((HTKSampleTableViewCell *)cellToSetup) setupCellWithData:dataDict andImage:nil];
-        
-        // return cell
-        return cellToSetup;
-    }];
-    
-    return cellSize.height;
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
 }
 
 @end

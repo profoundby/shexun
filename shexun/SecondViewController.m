@@ -22,9 +22,34 @@
     // Do any additional setup after loading the view, typically from a nib.
     _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-50)];
     _mapView.showsUserLocation = YES;
-    NSArray *locarray = [self.location componentsSeparatedByString:@"|"];
-
     [self.view  addSubview:_mapView];
+    NSArray *locarray = [self.location componentsSeparatedByString:@"|"];
+    
+        if([locarray count] == 3)
+        {
+            CLLocationCoordinate2D coor1;
+            coor1.latitude = [[locarray objectAtIndex:1] doubleValue];
+            coor1.longitude = [[locarray objectAtIndex:0] doubleValue];
+            NSDictionary *tip =  BMKConvertBaiduCoorFrom(coor1,BMK_COORDTYPE_GPS);
+            coor1=  BMKCoorDictionaryDecode(tip);
+            BMKCoordinateRegion viewRegion = BMKCoordinateRegionMake(coor1, BMKCoordinateSpanMake(0.05,0.05));
+            BMKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
+            [_mapView setRegion:adjustedRegion animated:YES];
+           
+            
+            BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
+            CLLocationCoordinate2D coor;
+            coor.latitude = [[locarray objectAtIndex:1] doubleValue];
+            coor.longitude = [[locarray objectAtIndex:0] doubleValue];
+            annotation.coordinate = coor;
+            annotation.title = [NSString stringWithFormat:@"%@",[self.company objectForKey:@"companyname"]];
+            [_mapView addAnnotation:annotation];
+        }
+    
+
+ 
+    
+    
     
     
     
@@ -32,6 +57,17 @@
     _locService.delegate = self;
     _firstload = false;
     [_locService startUserLocationService];*/
+}
+
+- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[BMKPointAnnotation class]]) {
+        BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
+        newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
+        newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
+        return newAnnotationView;
+    }
+    return nil;
 }
 
 

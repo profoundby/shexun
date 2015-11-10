@@ -60,6 +60,7 @@
     };
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@",SERVER_PREFIX,SX_INDEX] success:successblock fail:nil];
+    self.navigationItem.rightBarButtonItem  = nil;
     
 }
 
