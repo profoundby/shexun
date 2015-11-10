@@ -482,6 +482,63 @@
             </objects>
             <point key="canvasLocation" x="1782.5" y="342.5"/>
         </scene>
+        <!--Common List View Controller-->
+        <scene sceneID="ccz-as-UaP">
+            <objects>
+                <viewController storyboardIdentifier="commonlist" id="lkV-WK-zOS" customClass="CommonListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="316-0B-ULT"/>
+                        <viewControllerLayoutGuide type="bottom" id="YNw-mL-XcA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mKx-cD-Cur">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AiZ-OS-4jy">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lkV-WK-zOS" id="U3b-PR-kbz"/>
+                                    <outlet property="delegate" destination="lkV-WK-zOS" id="s1l-1n-nd0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AiZ-OS-4jy" firstAttribute="top" secondItem="316-0B-ULT" secondAttribute="bottom" id="5A1-gA-Dax"/>
+                            <constraint firstAttribute="trailing" secondItem="AiZ-OS-4jy" secondAttribute="trailing" id="Jpc-4n-PKb"/>
+                            <constraint firstAttribute="bottom" secondItem="AiZ-OS-4jy" secondAttribute="bottom" id="RxS-k7-xK4"/>
+                            <constraint firstItem="AiZ-OS-4jy" firstAttribute="leading" secondItem="mKx-cD-Cur" secondAttribute="leading" id="bu6-Bj-WRF"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableview" destination="AiZ-OS-4jy" id="fkx-Ly-Ve6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b8y-oe-dR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2351.5" y="342.5"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="rDz-cD-Uof">
+            <objects>
+                <viewController storyboardIdentifier="mapview" id="n1O-e0-DMO" customClass="SecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HBh-B4-2Hq"/>
+                        <viewControllerLayoutGuide type="bottom" id="xUy-0S-CAs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0IM-sL-5Gb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRQ-Ps-C6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2883" y="331"/>
+        </scene>
         <!--附近-->
         <scene sceneID="wEL-Cr-onq">
             <objects>
@@ -734,7 +791,7 @@
                                         <connections>
                                             <outlet property="imageview" destination="QWs-eo-oal" id="h2f-Yr-DbX"/>
                                             <outlet property="title" destination="5Qc-Uw-M6T" id="RYa-ep-nOT"/>
-                                            <segue destination="kqn-OG-xDj" kind="show" id="X5Y-NX-PgF"/>
+                                            <segue destination="kqn-OG-xDj" kind="show" id="qHm-AF-Zza"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

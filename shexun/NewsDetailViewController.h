@@ -15,5 +15,6 @@
 
 @property (nonatomic,weak) NSString * titletext;
 @property (nonatomic,weak) NSString * newsid;
+@property (nonatomic,copy) NSString * content;
 
 @end

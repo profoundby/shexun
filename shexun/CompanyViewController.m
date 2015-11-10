@@ -13,6 +13,9 @@
 #import "ServerAPI.h"
 #import <MBProgressHUD.h>
 #import "HTKSampleTableViewCell.h"
+#import "NewsDetailViewController.h"
+#import "CommonListViewController.h"
+#import "SecondViewController.h"
 
 @interface CompanyViewController ()
 
@@ -35,8 +38,8 @@ static NSString *HTKSampleTableViewCellIdentifier = @"HTKSampleTableViewCellIden
     [self.scrollview addSubview:servicecollection.view];*/
     self.serviceimages = [NSArray arrayWithObjects:@"weibo_com_icon_about",@"weibo_com_icon_news",@"weibo_com_icon_product",@"weibo_com_icon_3d",@"weibo_com_icon_location",
                           @"weibo_com_icon_video",@"weibo_com_icon_joinus",@"weibo_com_icon_weiapp",nil];
-    self.servicetexts = [NSArray arrayWithObjects:@"企业概况\n眼疾手快，迅速了解企业概况",@"企业资讯\n随时随地，知晓企业全方位资讯",@"产品中心",@"3D展厅",@"地理位置",
-                         @"企业视频",@"人才招聘",@"微APP",nil];
+    self.servicetexts = [NSArray arrayWithObjects:@"企业概况\n眼疾手快，迅速了解企业概况",@"企业资讯\n随时随地，知晓企业全方位资讯",@"产品中心\n万千产品，指尖一览而过",@"3D展厅\n720度视角，解读企业实景",@"地理位置\nGPS导航，迅速找到我们",
+                         @"企业视频\n视频富媒体，真实生动展示",@"人才招聘\n求贤若渴，期待优秀的您加入",@"微APP\n掌握无线商机，拓展无限上午渠道",nil];
     
     // Register cell classes
     //[self.collectionView registerClass:[CompanyServiceCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -204,6 +207,47 @@ static NSString *HTKSampleTableViewCellIdentifier = @"HTKSampleTableViewCellIden
     return UIEdgeInsetsMake(5, 5, 5, 5);
 }
 
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([indexPath row] == 0)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        NewsDetailViewController   *newsvc = (NewsDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"newsdetail"];
+        newsvc.titletext =@"企业详情";
+        newsvc.content = [self.company objectForKey:@"introduce" ];
+        [self showViewController:newsvc sender:self];
+    }
+    else if([indexPath row] == 1)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        CommonListViewController   *comvc = (CommonListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"commonlist"];
+        comvc.interface = [NSString stringWithFormat:@"%@%@&userid=%@",SERVER_PREFIX,SX_NEWSLIST,[self.company objectForKey:@"userid"]];
+        comvc.titlekey = @"title";
+        comvc.datakey = SX_NEWSLIST;
+        [self showViewController:comvc sender:self];
+    }
+    
+    else if([indexPath row] == 6)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        CommonListViewController   *comvc = (CommonListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"commonlist"];
+        comvc.interface = [NSString stringWithFormat:@"%@%@&userid=%@",SERVER_PREFIX,SX_JOBLIST,[self.company objectForKey:@"userid"]];
+        comvc.titlekey = @"title";
+        comvc.datakey = SX_JOBLIST;
+        [self showViewController:comvc sender:self];
+    }
+    
+    else if([indexPath row] == 4)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        SecondViewController   *mapvc = (SecondViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mapview"];
+        mapvc.location = [self.company objectForKey:@"map"];
+        [self showViewController:mapvc sender:self];
+    }
+    
+    
+    
+}
 
 /*
 #pragma mark - Navigation
@@ -257,6 +301,27 @@ static NSString *HTKSampleTableViewCellIdentifier = @"HTKSampleTableViewCellIden
     [self showViewController:newsvc sender:self];*/
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    __weak typeof(self) weakSelf = self;
+    CGSize defaultSize = [HTKSampleTableViewCell defaultCellSize];
+    
+    // Create our size
+    CGSize cellSize = [HTKSampleTableViewCell sizeForCellWithDefaultSize:defaultSize setupCellBlock:^id(id<HTKDynamicResizingCellProtocol> cellToSetup) {
+        // set values - there's no need to set the image here
+        // because we have height and width constraints set, so
+        // nil image will end up measuring to that size. If you don't
+        // set the image contraints, it will end up being it's 1x intrinsic
+        // size of the image, so you should set a default image when you
+        // create the cell.
+        NSDictionary *dataDict = weakSelf.companyactivities[indexPath.row];
+        [((HTKSampleTableViewCell *)cellToSetup) setupCellWithData:dataDict andImage:nil];
+        
+        // return cell
+        return cellToSetup;
+    }];
+    
+    return cellSize.height;
+}
 
 @end

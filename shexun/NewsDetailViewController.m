@@ -18,6 +18,8 @@
 -(void)viewDidLoad
 {
     [self.newstitle setText:titletext];
+    if(self.content == nil)
+    {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //hud.mode = MBProgressHUDModeText;
     hud.labelText = @"正在获取新闻内容";
@@ -29,6 +31,11 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
     }];
+    }
+    else
+    {
+        [self.contentWebview loadHTMLString:self.content baseURL:nil];
+    }
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView

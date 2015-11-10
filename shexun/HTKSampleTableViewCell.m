@@ -94,7 +94,7 @@
     self.bioLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.bioLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.bioLabel.numberOfLines = 0; // Must be set for multi-line label to work
-    self.bioLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.bioLabel.lineBreakMode = NSLineBreakByCharWrapping;
     self.bioLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
     self.bioLabel.textColor = [UIColor darkGrayColor];
     [self.contentView addSubview:self.bioLabel];

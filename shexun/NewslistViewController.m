@@ -144,11 +144,20 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     NewsDetailViewController   *newsvc = (NewsDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"newsdetail"];
     newsvc.titletext =[[self.newslist objectAtIndex:[indexPath row]]objectForKey:@"title" ];
     newsvc.newsid = [[self.newslist objectAtIndex:[indexPath row]]objectForKey:@"id" ];
-    [self showViewController:newsvc sender:self];
+    [self showViewController:newsvc sender:self];*/
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    id theSegue = segue.destinationViewController;
+    [theSegue setValue:[[self.newslist objectAtIndex:[self.tableview.indexPathForSelectedRow row]]objectForKey:@"title" ] forKey:@"titletext"];
+    [theSegue setValue:[[self.newslist objectAtIndex:[self.tableview.indexPathForSelectedRow row]]objectForKey:@"id" ] forKey:@"newsid"];
+    
 }
 
 

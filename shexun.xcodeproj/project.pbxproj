@@ -42,6 +42,7 @@
 		04D2A7211BCCFDB700E1BE12 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2A7201BCCFDB700E1BE12 /* LeftMenuViewController.m */; };
 		04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2E8F51BD4E90C00721EDD /* CTCheckbox.m */; };
 		04D8D0751BDA13C1006CF690 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */; };
+		04E48D571BF1D06300F635DB /* CommonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E48D561BF1D06300F635DB /* CommonListViewController.m */; };
 		37116A431BEF420000A87D41 /* CompanyActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37116A421BEF420000A87D41 /* CompanyActivityView.m */; };
 		37116A451BEF438400A87D41 /* CompanyActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37116A441BEF438400A87D41 /* CompanyActivityView.xib */; };
 		379BD2E41BE8F8DA00064192 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BD2E31BE8F8DA00064192 /* CompanyViewController.m */; };
@@ -131,6 +132,8 @@
 		04D8D0731BDA13C1006CF690 /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
 		04D8D0741BDA13C1006CF690 /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
 		04D964B11BCB83380018935A /* ServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerAPI.h; sourceTree = "<group>"; };
+		04E48D551BF1D06300F635DB /* CommonListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonListViewController.h; sourceTree = "<group>"; };
+		04E48D561BF1D06300F635DB /* CommonListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonListViewController.m; sourceTree = "<group>"; };
 		37116A411BEF420000A87D41 /* CompanyActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyActivityView.h; sourceTree = "<group>"; };
 		37116A421BEF420000A87D41 /* CompanyActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyActivityView.m; sourceTree = "<group>"; };
 		37116A441BEF438400A87D41 /* CompanyActivityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyActivityView.xib; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				04C9CF471BEC91F20095EA9B /* CommunityViewController.m */,
 				04884A911BD8DD2C00E0CB20 /* MoreSettingViewController.h */,
 				04884A921BD8DD2C00E0CB20 /* MoreSettingViewController.m */,
+				04E48D551BF1D06300F635DB /* CommonListViewController.h */,
+				04E48D561BF1D06300F635DB /* CommonListViewController.m */,
 				04C4B8861BC64C17001E5ADC /* Main.storyboard */,
 				04C5FE651BE8988800588248 /* UIIndexCollectionCell.h */,
 				04C5FE661BE8988800588248 /* UIIndexCollectionCell.m */,
@@ -513,6 +518,7 @@
 				04D2E8F61BD4E90C00721EDD /* CTCheckbox.m in Sources */,
 				04C6B5F01BF0986200C63C34 /* HTKDynamicResizingTableViewCell.m in Sources */,
 				04C4B87C1BC64C17001E5ADC /* main.m in Sources */,
+				04E48D571BF1D06300F635DB /* CommonListViewController.m in Sources */,
 				04C5FE671BE8988800588248 /* UIIndexCollectionCell.m in Sources */,
 				04C6B5EC1BF0984C00C63C34 /* HTKSampleTableViewCell.m in Sources */,
 				04C9CF4B1BEC95B50095EA9B /* CompanyCardView.m in Sources */,

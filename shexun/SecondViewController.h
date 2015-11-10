@@ -17,6 +17,8 @@
     BOOL  _firstload;
 }
 
+@property (nonatomic,copy) NSString * location;
+
 
 @end
 

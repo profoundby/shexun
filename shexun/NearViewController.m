@@ -32,7 +32,7 @@
     self.menu = menu;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@",SERVER_PREFIX,SX_COMCAT] success:^(id json) {
-        
+        self.allcatids = [json objectForKey:@"result"];
         NSMutableArray * cats = [[NSMutableArray alloc] init];
         for (int i=0;i < [[[json objectForKey:@"result"] objectForKey:@"catids"] count] ; i++) {
             [cats addObject: [[[[json objectForKey:@"result"] objectForKey:@"catids"] objectAtIndex:i] objectForKey:@"catname"]];

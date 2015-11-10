@@ -31,7 +31,7 @@
                @"textField.autocapitalizationType": @(UITextAutocapitalizationTypeWords)},
              
              @{FXFormFieldKey:@"password",FXFormFieldTitle:@"密码",FXFormFieldType:FXFormFieldTypePassword},
-             @{FXFormFieldKey:@"repeatpassword",FXFormFieldTitle:@"确认密码",FXFormFieldType:FXFormFieldTypePassword},
+             @{FXFormFieldKey:@"repeatPassword",FXFormFieldTitle:@"确认密码",FXFormFieldType:FXFormFieldTypePassword},
              
              //we want to add another group header here, and modify the auto-capitalization
              
@@ -43,8 +43,8 @@
              
              @{FXFormFieldKey:@"phone",FXFormFieldTitle:@"手机号码"},
              @{FXFormFieldTitle: @"获取验证码", FXFormFieldAction: @"sendVerifyCode:"},
-             @"验证码",
-             @{FXFormFieldKey:@"profilePhoto",FXFormFieldTitle:@"头像",FXFormFieldType:FXFormFieldTypeImage},
+             @{FXFormFieldKey:@"verifycode",FXFormFieldTitle:@"验证码"},
+             //@{FXFormFieldKey:@"profilePhoto",FXFormFieldTitle:@"头像",FXFormFieldType:FXFormFieldTypeImage},
              
              
              @{FXFormFieldTitle: @"注册", FXFormFieldHeader: @"", FXFormFieldAction: @"submitRegistrationForm:"},

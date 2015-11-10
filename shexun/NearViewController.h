@@ -22,6 +22,7 @@
 @property (nonatomic, copy) NSArray *originalArray;
 @property (nonatomic, copy) NSArray *results;
 @property (nonatomic, readwrite) NSInteger selectIndex;
+@property (nonatomic, readwrite) NSDictionary *allcatids;
 
 @property (nonatomic, strong) IBOutlet DOPDropDownMenu *menu;
 

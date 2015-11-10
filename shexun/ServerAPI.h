@@ -32,3 +32,6 @@
 #define  SX_ISFANS    @"isfans"
 #define  SX_ADDFANS   @"addfans"
 #define  SX_DELFANS   @"delfans"
+#define  SX_REGISTER  @"register"
+#define  SX_NEWSLIST  @"newslist"
+#define  SX_JOBLIST   @"joblist"

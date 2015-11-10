@@ -68,7 +68,7 @@
     
     // Return which size is bigger since systemLayoutFittingSize will return
     // the smallest size fitting that fits.
-    size.width = MAX(defaultSize.width, size.width);
+    size.width = MIN(defaultSize.width, size.width);
     
     // Return our size that was calculated
     return size;

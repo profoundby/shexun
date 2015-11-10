@@ -46,6 +46,19 @@
     cell.textLabel.text=[self.settingdata objectAtIndex:[indexPath row]];
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([indexPath row] == 2) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://m.58.com"]];
+    }
+    if([indexPath row] == 3)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"清除缓存成功" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+    }
+    else if([indexPath row] == 4)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"此版本为最新版本" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+    }
+}
 
 #pragma mark 返回每组头标题名称
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -60,7 +73,8 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIImageView *headview = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_logo"]];
+    UIImageView *headview = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"company_bg"]];
+    headview.contentMode = UIViewContentModeScaleAspectFit;
     return  headview;
     
 }
@@ -85,7 +99,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return 80;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
