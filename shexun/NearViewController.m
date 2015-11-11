@@ -100,6 +100,15 @@
 
 - (void)menu:(DOPDropDownMenu *)menu didSelectRowAtIndexPath:(DOPIndexPath *)indexPath {
     NSLog(@"column:%li row:%li", (long)indexPath.column, (long)indexPath.row);
+    if (indexPath.column == 0) {
+        NSDictionary *catid = [[self.allcatids objectForKey:@"catids"] objectAtIndex:[indexPath row]];
+        NSLog(@"第一分类为%@,id是%@",[catid objectForKey:@"catname"],[catid objectForKey:@"catid"]);
+        self.selectIndex = [indexPath row];
+    };
+    if (indexPath.column == 1) {
+        NSDictionary *catid = [[[[self.allcatids objectForKey:@"catids"] objectAtIndex:self.selectIndex] objectForKey:@"subid"] objectAtIndex:[indexPath row]];
+        NSLog(@"第二分类为%@,id是%@",[catid objectForKey:@"catname"],[catid objectForKey:@"catid"]);
+    };
     NSLog(@"%@",[menu titleForRowAtIndexPath:indexPath]);
     if([indexPath column] == 0)
     {

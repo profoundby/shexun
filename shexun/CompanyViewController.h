@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "CompanyCardView.h"
 #import "CompanyActivityView.h"
+#import "CompanyActivityTableViewCell.h"
 
 @interface CompanyViewController :UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource>
 
@@ -27,6 +28,8 @@
 @property (nonatomic,strong) NSArray * serviceimages;
 @property (nonatomic,strong) NSArray * servicetexts;
 @property (nonatomic,copy)  NSArray * companyactivities;
+
+@property (nonatomic, strong) CompanyActivityTableViewCell *prototypeCell;
 
 -(void)openWebpage:(id)sender;
 -(void)openDialpage:(id)sender;

@@ -16,6 +16,7 @@
 #import "NewsDetailViewController.h"
 #import "CommonListViewController.h"
 #import "SecondViewController.h"
+#import <UITableView+FDTemplateLayoutCell.h>
 
 @interface CompanyViewController ()
 
@@ -24,7 +25,7 @@
 @implementation CompanyViewController
 
 static NSString * const reuseIdentifier = @"companyservicecell";
-static NSString * const identifier = @"Cell";
+static NSString * const identifier = @"activitytablecell";
 @synthesize company;
 
 
@@ -51,9 +52,9 @@ static NSString * const identifier = @"Cell";
     self.activityview = [CompanyActivityView initview];
     self.activityview.tableview.dataSource = self;
     self.activityview.tableview.delegate = self;
-    [self.activityview setFrame:CGRectMake(0, 0, self.scrollview.frame.size.width, self.view.frame.size.height)];
     [self.companylogo sd_setImageWithURL:[NSURL URLWithString:[company objectForKey:@"logo"]] placeholderImage:[UIImage imageNamed:@"ic_launcher"]];
     [self.companyname setText:[company objectForKey:@"companyname"]];
+    [self.activityview setFrame:CGRectMake(0, 0, self.scrollview.frame.size.width, self.scrollview.frame.size.height)];
     [self.scrollview addSubview:self.activityview];
     [self.scrollview addSubview:self.collectionView];
     [self.scrollview addSubview:self.cardview];
@@ -65,6 +66,7 @@ static NSString * const identifier = @"Cell";
     [self.cardview.tel setText:[self.company objectForKey:@"telephone"]];
     [self.cardview.address setText:[self.company objectForKey:@"address"]];
     [self.activityview.tableview registerNib:[UINib nibWithNibName:@"CompanyActivityTableViewCell" bundle:nil] forCellReuseIdentifier:identifier];
+    
 
     [self.scrollview bringSubviewToFront:self.activityview];
     UITapGestureRecognizer *tapGestureWeb = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openWebpage:)];
@@ -249,6 +251,14 @@ static NSString * const identifier = @"Cell";
     {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.shexun.net.cn/index.php?m=yp&c=com_index&userid=%@",[self.company objectForKey:@"userid"]]]];
     }
+    else if([indexPath row] == 3)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"暂无企业全景" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"暂无企业视频" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+    }
     
     
     
@@ -281,18 +291,12 @@ static NSString * const identifier = @"Cell";
 #pragma mark返回每行的单元格
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CompanyActivityTableViewCell *cell = (CompanyActivityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"CompanyActivityTableViewCell" owner:self options:nil] lastObject];
-    }
-    CGSize boundSize = CGSizeMake(216, CGFLOAT_MAX);
     cell.companyname.text = [self.company objectForKey:@"companyname"];
-    cell.activitytitle.text = [[[self.company objectForKey:@"activities"] objectAtIndex:[indexPath row]] objectForKey:@"title"];
-    cell.activitycontent.text = [[[self.company objectForKey:@"activities"] objectAtIndex:[indexPath row]] objectForKey:@"content"];
+    cell.activitytitle.text = [[self.companyactivities objectAtIndex:[indexPath row]] objectForKey:@"updatetime"];
+    cell.activitycontent.text = [[self.companyactivities objectAtIndex:[indexPath row]] objectForKey:@"content"];
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
     [cell.companylogo sd_setImageWithURL:[NSURL URLWithString:[self.company objectForKey:@"logo"]]];
-    CGSize requiredSize = [cell.activitycontent.text sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:boundSize lineBreakMode:NSLineBreakByWordWrapping];
-    CGRect rect = cell.frame;
-    rect.size.height = requiredSize.height;
-    cell.frame = rect;
     return cell;
 }
 
@@ -307,8 +311,14 @@ static NSString * const identifier = @"Cell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;
+        return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(CompanyActivityTableViewCell * cell) {
+            // 配置 cell 的数据源，和 "cellForRow" 干的事一致，比如：
+            cell.companyname.text = [self.company objectForKey:@"companyname"];
+            cell.activitytitle.text = [[self.companyactivities objectAtIndex:[indexPath row]] objectForKey:@"updatetime"];
+            cell.activitycontent.text = [[self.companyactivities objectAtIndex:[indexPath row]] objectForKey:@"content"];
+            [cell.companylogo sd_setImageWithURL:[NSURL URLWithString:[self.company objectForKey:@"logo"]]];
+        }];
+    
 }
 
 @end
