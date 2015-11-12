@@ -15,7 +15,7 @@
     [super viewDidLoad];
     
     //初始化数据
-    self.settingdata = [NSArray arrayWithObjects:@"扫描二维码",@"我的好友",@"生活服务",@"清除缓存",@"自动更新", nil];
+    self.settingdata = [NSArray arrayWithObjects:@"生活服务",@"清除缓存",@"自动更新", nil];
     
     //创建一个分组样式的UITableView
     self.tableview=[[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
@@ -47,14 +47,14 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([indexPath row] == 2) {
+    if ([indexPath row] == 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://m.58.com"]];
     }
-    if([indexPath row] == 3)
+    if([indexPath row] == 1)
     {
         [[[UIAlertView alloc] initWithTitle:@"清除缓存成功" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
     }
-    else if([indexPath row] == 4)
+    else if([indexPath row] == 2)
     {
         [[[UIAlertView alloc] initWithTitle:@"此版本为最新版本" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
     }

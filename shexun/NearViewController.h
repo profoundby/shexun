@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSArray *subcategorys;
 @property (nonatomic, strong) NSMutableDictionary *subcategorysdic;
 @property (nonatomic, copy) NSArray *distances;
+@property (nonatomic, copy) NSArray *distancenums;
 @property (nonatomic, strong) NSMutableDictionary *distancesdic;
 @property (nonatomic, copy) NSArray *orders;
 @property (nonatomic, strong) NSMutableDictionary *ordersdic;
@@ -23,6 +24,10 @@
 @property (nonatomic, copy) NSArray *results;
 @property (nonatomic, readwrite) NSInteger selectIndex;
 @property (nonatomic, readwrite) NSDictionary *allcatids;
+
+@property (nonatomic,weak) NSString * catid;
+@property (nonatomic,weak) NSString * distance;
+@property (nonatomic,weak) NSString * order;
 
 @property (nonatomic, strong) IBOutlet DOPDropDownMenu *menu;
 

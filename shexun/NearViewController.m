@@ -20,10 +20,12 @@
      [super viewDidLoad];
     self.categorys = @[@"企业"];
     self.subcategorys = @[@"分类"];
-    self.distances = @[@"距离"];
+    self.distances = @[@"距离",@"1000m",@"3.0km",@"5.0km",@"10.0km",@"50km",@"10km"];
+    self.distancenums = @[@"0",@"1000",@"3000",@"5000",@"10000",@"50000",@"100000"];
     self.orders = @[@"筛选"];
     self.results = self.originalArray;
     self.categorysdic = [[NSMutableDictionary alloc] init];
+    self.order = @"default";
     
     DOPDropDownMenu *menu = [[DOPDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:40];
     menu.dataSource = self;
@@ -40,7 +42,7 @@
         }
         self.categorys = cats;
         NSMutableArray *ords = [[NSMutableArray alloc] init];
-        [ords addObject:@"全部"];
+        //[ords addObject:@"全部"];
         self.ordersdic = [[json objectForKey:@"result"] objectForKey:@"orders"];
         for (int i=0; i<[self.ordersdic count];i++) {
             [ords addObject:[[self.ordersdic allValues] objectAtIndex:i]];
@@ -65,6 +67,8 @@
 - (NSInteger)numberOfColumnsInMenu:(DOPDropDownMenu *)menu {
     return 4;
 }
+
+
 
 - (NSInteger)menu:(DOPDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column {
     switch (column) {
@@ -104,25 +108,54 @@
         NSDictionary *catid = [[self.allcatids objectForKey:@"catids"] objectAtIndex:[indexPath row]];
         NSLog(@"第一分类为%@,id是%@",[catid objectForKey:@"catname"],[catid objectForKey:@"catid"]);
         self.selectIndex = [indexPath row];
-    };
-    if (indexPath.column == 1) {
-        NSDictionary *catid = [[[[self.allcatids objectForKey:@"catids"] objectAtIndex:self.selectIndex] objectForKey:@"subid"] objectAtIndex:[indexPath row]];
-        NSLog(@"第二分类为%@,id是%@",[catid objectForKey:@"catname"],[catid objectForKey:@"catid"]);
-    };
-    NSLog(@"%@",[menu titleForRowAtIndexPath:indexPath]);
-    if([indexPath column] == 0)
-    {
-      NSMutableArray *subids = [[self.categorysdic objectForKey:[menu titleForRowAtIndexPath:indexPath]] objectForKey:@"subid"];
+        self.catid =[catid objectForKey:@"catid"];
+        NSMutableArray *subids = [[self.categorysdic objectForKey:[menu titleForRowAtIndexPath:indexPath]] objectForKey:@"subid"];
         NSMutableArray * cats = [[NSMutableArray alloc] init];
         for (int i=0; i<[subids count]; i++) {
             [cats  addObject:[[subids objectAtIndex:i] objectForKey:@"catname"]];
         }
         self.subcategorys = cats;
     }
+    else if (indexPath.column == 1) {
+        NSDictionary *catid = [[[[self.allcatids objectForKey:@"catids"] objectAtIndex:self.selectIndex] objectForKey:@"subid"] objectAtIndex:[indexPath row]];
+        NSLog(@"第二分类为%@,id是%@",[catid objectForKey:@"catname"],[catid objectForKey:@"catid"]);
+        self.catid =[catid objectForKey:@"catid"];
+        [self updateData];
+    }
+    //NSLog(@"%@",[menu titleForRowAtIndexPath:indexPath]);
+    
+    else if(indexPath.column == 2)
+    {
+        self.distance = [self.distancenums objectAtIndex:[indexPath row]];
+        NSLog( @"distance is %@", self.distance);
+        [self updateData];
+    }
+    
+    else
+    {
+        self.order = [[[self.allcatids objectForKey:@"orders"] allKeys] objectAtIndex:[indexPath row]];
+        NSLog( @"order is %@", self.order);
+        [self updateData];
+    }
     
 
     
     self.results = nil;
+}
+
+-(void)updateData
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
+    [AFUtil JSONDataWithUrl:[NSString stringWithFormat:@"%@%@&catid=%@&distance=%@&order=%@",SERVER_PREFIX,SX_NEARCOM,self.catid,self.distance,self.order] success:^(id json) {
+        self.nearcomdata = [json objectForKey:@"result"];
+        [self.tableview reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    } fail:^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+    
 }
 
 
