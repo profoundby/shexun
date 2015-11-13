@@ -380,8 +380,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YrW-Eg-sOd">
                                 <rect key="frame" x="0.0" y="300" width="375" height="318"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o2w-uX-onG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o2w-uX-onG">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="318"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Oga-Ea-hf5">
@@ -439,6 +439,14 @@
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.2156862745" green="0.63137254899999995" blue="0.88235294119999996" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstItem="o2w-uX-onG" firstAttribute="width" secondItem="YrW-Eg-sOd" secondAttribute="width" id="BH5-4H-DgZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="o2w-uX-onG" secondAttribute="trailing" id="OnV-J4-VA6"/>
+                                    <constraint firstItem="o2w-uX-onG" firstAttribute="top" secondItem="YrW-Eg-sOd" secondAttribute="top" id="Sbz-Bl-cPl"/>
+                                    <constraint firstAttribute="bottom" secondItem="o2w-uX-onG" secondAttribute="bottom" id="UCR-o7-yZR"/>
+                                    <constraint firstItem="o2w-uX-onG" firstAttribute="leading" secondItem="YrW-Eg-sOd" secondAttribute="leading" id="WoM-aX-ba5"/>
+                                    <constraint firstItem="o2w-uX-onG" firstAttribute="height" secondItem="YrW-Eg-sOd" secondAttribute="height" id="enK-mT-qVH"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <animations/>
@@ -831,7 +839,7 @@
             </objects>
             <point key="canvasLocation" x="1312.5" y="1906.5"/>
         </scene>
-        <!--Root View Controller-->
+        <!--更多-->
         <scene sceneID="Hog-Zb-U4j">
             <objects>
                 <tableViewController id="xkj-Pw-Zaf" customClass="MoreSettingViewController" sceneMemberID="viewController">
@@ -855,7 +863,7 @@
                             <outlet property="delegate" destination="xkj-Pw-Zaf" id="p0A-wW-kpu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ICB-Bl-VoM"/>
+                    <navigationItem key="navigationItem" title="更多" id="ICB-Bl-VoM"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableview" destination="OZh-3N-QO4" id="VvK-1Y-WMD"/>
